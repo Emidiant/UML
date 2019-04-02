@@ -16,7 +16,10 @@ import javafx.stage.Stage;
 
 
 public class MainController {
-	System.out.println("Check");
+    public static void main(String[] args) {
+        System.out.println("Check");
+    }
+
 
 }
 
