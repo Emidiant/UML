@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 
 public class MainController {
-
+	System.out.println("Check");
 
 }
 
