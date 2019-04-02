@@ -9,27 +9,14 @@
     <version>1.0-SNAPSHOT</version>
 
 
-
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.microsoft.sqls.. -->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>7.1.2.jre8-preview</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <version>1.4.197</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.microsoft.sqls.. -->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.2</version>
-        </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -62,6 +49,14 @@
                 <version>2.0</version>
                 <configuration>
                     <mainClass>UI.MainApp</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
                 </configuration>
             </plugin>
 
