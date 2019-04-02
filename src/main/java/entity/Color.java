@@ -5,8 +5,7 @@ public class Color {
     private int colorId;
     private String colorName;
 
-    public Color(){
-
+    public Color() {
     }
 
     public int getColorId() {
@@ -23,5 +22,13 @@ public class Color {
 
     public void setColorName(String colorName) {
         this.colorName = colorName;
+    }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "colorId=" + colorId +
+                ", colorName='" + colorName + '\'' +
+                '}';
     }
 }

@@ -5,8 +5,7 @@ public class Size {
     private int sizeId;
     private String sizeName;
 
-    public Size(){
-
+    public Size() {
     }
 
     public int getSizeId() {
@@ -23,5 +22,13 @@ public class Size {
 
     public void setSizeName(String sizeName) {
         this.sizeName = sizeName;
+    }
+
+    @Override
+    public String toString() {
+        return "Size{" +
+                "sizeId=" + sizeId +
+                ", sizeName='" + sizeName + '\'' +
+                '}';
     }
 }

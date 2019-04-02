@@ -10,7 +10,8 @@ public class Administrator {
     private String login;
     private String password;
 
-    public Administrator(){}
+    public Administrator() {
+    }
 
     public int getAdministratorId() {
         return administratorId;
@@ -66,5 +67,18 @@ public class Administrator {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Administrator{" +
+                "administratorId=" + administratorId +
+                ", secondName='" + secondName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", email='" + email + '\'' +
+                ", level='" + level + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

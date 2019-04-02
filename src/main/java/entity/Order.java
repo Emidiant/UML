@@ -7,7 +7,8 @@ public class Order {
     private String deliveryType;
     private String status;
 
-    public Order(){}
+    public Order() {
+    }
 
     public int getOrderId() {
         return orderId;
@@ -39,5 +40,15 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", customerId=" + customerId +
+                ", deliveryType='" + deliveryType + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

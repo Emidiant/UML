@@ -11,7 +11,8 @@ public class Product {
     private int count;
     private String specification;
 
-    public Product(){}
+    public Product() {
+    }
 
     public int getProductId() {
         return productId;
@@ -75,5 +76,19 @@ public class Product {
 
     public void setSpecification(String specification) {
         this.specification = specification;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", sizeId=" + sizeId +
+                ", colorId=" + colorId +
+                ", price=" + price +
+                ", count=" + count +
+                ", specification='" + specification + '\'' +
+                '}';
     }
 }

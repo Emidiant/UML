@@ -6,7 +6,8 @@ public class ProductOrder {
     private int orderId;
     private int count;
 
-    public ProductOrder(){}
+    public ProductOrder() {
+    }
 
     public int getProductId() {
         return productId;
@@ -30,5 +31,14 @@ public class ProductOrder {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductOrder{" +
+                "productId=" + productId +
+                ", orderId=" + orderId +
+                ", count=" + count +
+                '}';
     }
 }
