@@ -1,7 +1,9 @@
 package ui;
 
+import dal.implementations.OrderImpl;
 import dal.implementations.ProductImpl;
 import dal.implementations.SizeImpl;
+import entity.Order;
 import entity.Product;
 import entity.Size;
 import javafx.event.ActionEvent;
@@ -33,25 +35,20 @@ public class MainController {
         Size size = new Size();
         size.setSizeName("xxl");
 
-        ProductImpl productImpl = new ProductImpl();
-        Product product = new Product();
-        product.setColorId(4);
-        product.setCount(5);
-        product.setSizeId(1);
-        product.setName("CarSticker");
-        product.setPrice(500);
-        product.setSpecification("чтобы все знали, что вы их этих");
-        product.setType("accessory");
+        //ProductImpl productImpl = new ProductImpl();
+        //Product product = new Product();
+
+        Order order = new Order();
+        OrderImpl orderImpl = new OrderImpl();
 
 
         //get by ID
         //Size seze1 = sizeImpl.getById(2);
         //System.out.println(seze1.toString());
         //System.out.println("\n");
-        //Booking booking1 = bookingImpl.getById(1);
-        //System.out.println(booking1.toString());
         //Product product1 = productImpl.getById(2);
         //System.out.println(product1.toString());
+        System.out.println(orderImpl.getById(1));
 
         //ADD
         //sizeImpl.add(size);
@@ -84,10 +81,10 @@ public class MainController {
         for (Booking o : bookingList){
             System.out.println(o);
         }*/
-        List<Product> productList = productImpl.getAll();
+        /*List<Product> productList = productImpl.getAll();
         for (Product p : productList){
             System.out.println(p);
-        }
+        }*/
     }
 
 

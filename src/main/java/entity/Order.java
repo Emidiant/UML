@@ -1,21 +1,21 @@
 package entity;
 
-public class Booking {
+public class Order {
 
-    private int bookingId;
+    private int orderId;
     private int customerId;
     private String deliveryType;
     private String status;
 
-    public Booking() {
+    public Order() {
     }
 
-    public int getBookingId() {
-        return bookingId;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getCustomerId() {
@@ -45,7 +45,7 @@ public class Booking {
     @Override
     public String toString() {
         return "Order{" +
-                "bookingId=" + bookingId +
+                "orderId=" + orderId +
                 ", customerId=" + customerId +
                 ", deliveryType='" + deliveryType + '\'' +
                 ", status='" + status + '\'' +
