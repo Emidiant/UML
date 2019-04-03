@@ -23,7 +23,7 @@ public class ConnectionUtil {
         Properties property = new Properties();
         Connection connection = null;
         try {
-            fis = new FileInputStream(".\\src\\main\\resources\\configs\\db.properties");
+            fis = new FileInputStream("./src/main/resources/configs/db.properties");
             property.load(fis);
             String link = property.getProperty("db.link");
             String login = property.getProperty("db.login");

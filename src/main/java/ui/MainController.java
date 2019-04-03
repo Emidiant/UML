@@ -22,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 
 public class MainController {
@@ -36,11 +37,12 @@ public class MainController {
         //ProductOrder productOrder = new ProductOrder();
 
         //productOrder.setOrderId(1);
-        //productOrder.setCount(1);
+        //productOrder.setCount(2);
         //productOrder.setProductId(2);
+        //Pair<Integer, Integer> pair = new Pair<>(2, 1);
+        //System.out.println(productOrderImpl.getById(pair));
 
-        //productOrderImpl.add(productOrder);
-
+        //productOrderImpl.update(productOrder);
 
         //SizeImpl sizeImpl = new SizeImpl();
         //Size size = new Size();
@@ -94,6 +96,10 @@ public class MainController {
         }*/
         /*List<Product> productList = productImpl.getAll();
         for (Product p : productList){
+            System.out.println(p);
+        }*/
+        /*List<ProductOrder> productOrderList = productOrderImpl.getAll();
+        for (ProductOrder p : productOrderList){
             System.out.println(p);
         }*/
     }
