@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.Hellopage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.MainController">
    <children>
       <ButtonBar layoutX="30.0" layoutY="72.0" prefHeight="40.0" prefWidth="200.0" />
     <Button layoutX="364.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
