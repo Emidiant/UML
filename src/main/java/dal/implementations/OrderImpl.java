@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderImpl implements OrderDao {
     @Override
     public void add(Order order) {
-        String query = "INSERT INTO ORDER(CUSTOMERID, DELIVERYTYPE, STATUS) VALUES(?, ?, ?)";
+        String query = "INSERT INTO \"ORDER\"(CUSTOMERID, DELIVERYTYPE, STATUS) VALUES(?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, order.getCustomerId());
@@ -26,7 +26,7 @@ public class OrderImpl implements OrderDao {
 
     @Override
     public List<Order> getAll() {
-        String query = "SELECT * FROM ORDER";
+        String query = "SELECT * FROM \"ORDER\"";
         List<Order> orders = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection()) {
             Statement statement = connection.createStatement();
@@ -51,7 +51,7 @@ public class OrderImpl implements OrderDao {
 
     @Override
     public Order getById(Integer id) {
-        String query = "SELECT * FROM ORDER WHERE ORDERID = ?";
+        String query = "SELECT * FROM \"ORDER\" WHERE ORDERID = ?";
         Order order = null;
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -72,7 +72,7 @@ public class OrderImpl implements OrderDao {
 
     @Override
     public void update(Order order) {
-        String query = "UPDATE ORDER SET CUSTOMERID = ?, DELIVERYTYPE = ?, STATUS = ? WHERE ORDERID = ?";
+        String query = "UPDATE \"ORDER\" SET CUSTOMERID = ?, DELIVERYTYPE = ?, STATUS = ? WHERE ORDERID = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, order.getCustomerId());
@@ -87,7 +87,7 @@ public class OrderImpl implements OrderDao {
 
     @Override
     public void delete(Order order) {
-        String query = "DELETE FROM ORDER WHERE ORDERID = ?";
+        String query = "DELETE FROM \"ORDER\" WHERE ORDERID = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, order.getOrderId());
