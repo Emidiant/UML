@@ -2,9 +2,11 @@ package ui;
 
 import dal.implementations.OrderImpl;
 import dal.implementations.ProductImpl;
+import dal.implementations.ProductOrderImpl;
 import dal.implementations.SizeImpl;
 import entity.Order;
 import entity.Product;
+import entity.ProductOrder;
 import entity.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -24,22 +26,31 @@ import javafx.stage.Stage;
 
 public class MainController {
     public static void main(String[] args) {
-        System.out.println("Check");
         //тест
         //size+
         //booking+
         //product+
-        //product booking
+        //product order
 
-        SizeImpl sizeImpl = new SizeImpl();
-        Size size = new Size();
-        size.setSizeName("xxl");
+        //ProductOrderImpl productOrderImpl = new ProductOrderImpl();
+        //ProductOrder productOrder = new ProductOrder();
+
+        //productOrder.setOrderId(1);
+        //productOrder.setCount(1);
+        //productOrder.setProductId(2);
+
+        //productOrderImpl.add(productOrder);
+
+
+        //SizeImpl sizeImpl = new SizeImpl();
+        //Size size = new Size();
+        //size.setSizeName("xxl");
 
         //ProductImpl productImpl = new ProductImpl();
         //Product product = new Product();
 
-        Order order = new Order();
-        OrderImpl orderImpl = new OrderImpl();
+        //Order order = new Order();
+        //OrderImpl orderImpl = new OrderImpl();
 
 
         //get by ID
@@ -48,7 +59,7 @@ public class MainController {
         //System.out.println("\n");
         //Product product1 = productImpl.getById(2);
         //System.out.println(product1.toString());
-        System.out.println(orderImpl.getById(1));
+        //System.out.println(orderImpl.getById(1));
 
         //ADD
         //sizeImpl.add(size);
