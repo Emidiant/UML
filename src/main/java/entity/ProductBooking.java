@@ -1,12 +1,12 @@
 package entity;
 
-public class ProductOrder {
+public class ProductBooking {
 
     private int productId;
-    private int orderId;
+    private int bookingId;
     private int count;
 
-    public ProductOrder() {
+    public ProductBooking() {
     }
 
     public int getProductId() {
@@ -17,12 +17,12 @@ public class ProductOrder {
         this.productId = productId;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public int getBookingId() {
+        return bookingId;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrderId(int bookingId) {
+        this.bookingId = bookingId;
     }
 
     public int getCount() {
@@ -37,7 +37,7 @@ public class ProductOrder {
     public String toString() {
         return "ProductOrder{" +
                 "productId=" + productId +
-                ", orderId=" + orderId +
+                ", bookingId=" + bookingId +
                 ", count=" + count +
                 '}';
     }
