@@ -1,23 +1,24 @@
 package dal.implementations;
 
-import dal.interfaces.OrderDao;
-import entity.Color;
-import entity.Order;
+import dal.interfaces.BookingDao;
+import entity.Booking;
 import utils.ConnectionUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderImpl implements OrderDao {
+
+public class BookingImpl implements BookingDao {
     @Override
-    public void add(Order order) {
-        String query = "INSERT INTO ORDER(CUSTOMERID, DELIVERYTYPE, STATUS) VALUES(?, ?, ?)";
+    public void add(Booking booking) {
+
+        String query = "INSERT INTO BOOKING(CUSTOMERID, DELIVERYTYPE, STATUS) VALUES(?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, order.getCustomerId());
-            preparedStatement.setString(2, order.getDeliveryType());
-            preparedStatement.setString(3, order.getStatus());
+            preparedStatement.setInt(1, booking.getCustomerId());
+            preparedStatement.setString(2, booking.getDeliveryType());
+            preparedStatement.setString(3, booking.getStatus());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -25,16 +26,16 @@ public class OrderImpl implements OrderDao {
     }
 
     @Override
-    public List<Order> getAll() {
-        String query = "SELECT * FROM ORDER";
-        List<Order> orders = new ArrayList<>();
+    public List<Booking> getAll() {
+        String query = "SELECT * FROM BOOKING";
+        List<Booking> orders = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                Order order = new Order();
+                Booking order = new Booking();
                 try {
-                    order.setOrderId(rs.getInt("ORDERID"));
+                    order.setBookingId(rs.getInt("BOOKINGID"));
                     order.setCustomerId(rs.getInt("CUSTOMERID"));
                     order.setDeliveryType(rs.getString("DELIVERYTYPE"));
                     order.setStatus(rs.getString("STATUS"));
@@ -50,16 +51,16 @@ public class OrderImpl implements OrderDao {
     }
 
     @Override
-    public Order getById(Integer id) {
-        String query = "SELECT * FROM ORDER WHERE ORDERID = ?";
-        Order order = null;
+    public Booking getById(Integer id) {
+        String query = "SELECT * FROM BOOKING WHERE BOOKINGID = ?";
+        Booking order = null;
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                order = new Order();
-                order.setOrderId(rs.getInt("ORDERID"));
+                order = new Booking();
+                order.setBookingId(rs.getInt("BOOKINGID"));
                 order.setCustomerId(rs.getInt("CUSTOMERID"));
                 order.setDeliveryType(rs.getString("DELIVERYTYPE"));
                 order.setStatus(rs.getString("STATUS"));
@@ -71,14 +72,14 @@ public class OrderImpl implements OrderDao {
     }
 
     @Override
-    public void update(Order order) {
-        String query = "UPDATE ORDER SET CUSTOMERID = ?, DELIVERYTYPE = ?, STATUS = ? WHERE ORDERID = ?";
+    public void update(Booking booking) {
+        String query = "UPDATE BOOKING SET CUSTOMERID = ?, DELIVERYTYPE = ?, STATUS = ? WHERE BOOKINGID = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, order.getCustomerId());
-            preparedStatement.setString(2, order.getDeliveryType());
-            preparedStatement.setString(3, order.getStatus());
-            preparedStatement.setInt(4, order.getOrderId());
+            preparedStatement.setInt(1, booking.getCustomerId());
+            preparedStatement.setString(2, booking.getDeliveryType());
+            preparedStatement.setString(3, booking.getStatus());
+            preparedStatement.setInt(4, booking.getBookingId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -86,11 +87,11 @@ public class OrderImpl implements OrderDao {
     }
 
     @Override
-    public void delete(Order order) {
-        String query = "DELETE FROM ORDER WHERE ORDERID = ?";
+    public void delete(Booking order) {
+        String query = "DELETE FROM BOOKING WHERE BOOKINGID = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, order.getOrderId());
+            preparedStatement.setInt(1, order.getBookingId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
