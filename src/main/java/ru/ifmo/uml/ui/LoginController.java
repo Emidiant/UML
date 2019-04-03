@@ -1,5 +1,10 @@
 package ru.ifmo.uml.ui;
 
-public class LoginController {
+import javafx.stage.Stage;
 
+public class LoginController {
+    Stage prevStage;
+    public void setStage(Stage stage){
+        this.prevStage = stage;
+    }
 }
