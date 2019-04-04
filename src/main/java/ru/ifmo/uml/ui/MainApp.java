@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -19,7 +21,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws IOException {
 
         this.primaryStage = stage;
-        //this.primaryStage.getIcons().add(new Image("/image/gamecontroller.png"));
+        this.primaryStage.getIcons().add(new Image("/image/239.png"));
         this.primaryStage.setTitle(" Start page");
         //showMainPage();
 
