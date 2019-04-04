@@ -46,7 +46,7 @@ public class MainController {
             e.printStackTrace();
         }
         Stage stage = (Stage) loginButton.getScene().getWindow();
-        //stage.getIcons().add(new Image("/image/gamecontroller.png"));
+        stage.getIcons().add(new Image("/image/239.png"));
         stage.setTitle(" Log In");
         Parent root = loader.getRoot();
         LoginController loginController = loader.getController();
