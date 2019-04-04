@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.LoginController">
    <children>
-      <ButtonBar layoutX="30.0" layoutY="72.0" prefHeight="40.0" prefWidth="200.0" />
-    <Button layoutX="364.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
-      <BorderPane layoutX="130.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" />
+      <BorderPane layoutX="130.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TextField BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="250.0" right="250.0" />
+               </BorderPane.margin>
+            </TextField>
+         </center></BorderPane>
    </children>
 </AnchorPane>
