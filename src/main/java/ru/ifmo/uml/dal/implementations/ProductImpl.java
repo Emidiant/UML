@@ -11,7 +11,7 @@ import java.util.List;
 public class ProductImpl implements ProductDao {
     @Override
     public void add(Product product) {
-        String query = "INSERT INTO PRODUCT(NAME, TYPE, SIZEID, COLORID, PRICE, COUNT, SPECIFICATION) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO PRODUCT(NAME, TYPE, SIZEID, COLORID, PRICE, COUNT, SPECIFICATION, ARTICLE,IMAGE) VALUES(?, ?, ?, ?, ?, ?, ?,?, ?)";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, product.getName());
@@ -21,6 +21,8 @@ public class ProductImpl implements ProductDao {
             preparedStatement.setDouble(5, product.getPrice());
             preparedStatement.setInt(6, product.getCount());
             preparedStatement.setString(7, product.getSpecification());
+            preparedStatement.setInt(8,product.getArticle());
+            preparedStatement.setString(9,product.getImageUrl());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -45,6 +47,8 @@ public class ProductImpl implements ProductDao {
                     product.setPrice(rs.getDouble("PRICE"));
                     product.setCount(rs.getInt("COUNT"));
                     product.setSpecification(rs.getString("SPECIFICATION"));
+                    product.setArticle(rs.getInt("ARTICLE"));
+                    product.setImageUrl(rs.getString("IMAGE"));
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -74,6 +78,8 @@ public class ProductImpl implements ProductDao {
                 product.setPrice(rs.getDouble("PRICE"));
                 product.setCount(rs.getInt("COUNT"));
                 product.setSpecification(rs.getString("SPECIFICATION"));
+                product.setArticle(rs.getInt("ARTICLE"));
+                product.setImageUrl(rs.getString("IMAGE"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -83,7 +89,7 @@ public class ProductImpl implements ProductDao {
 
     @Override
     public void update(Product product) {
-        String query = "UPDATE PRODUCT SET NAME = ?, TYPE = ?, SIZEID = ?, COLORID = ?, PRICE = ?, COUNT = ?, SPECIFICATION = ? WHERE PRODUCTID = ?";
+        String query = "UPDATE PRODUCT SET NAME = ?, TYPE = ?, SIZEID = ?, COLORID = ?, PRICE = ?, COUNT = ?, SPECIFICATION = ?, ARTICLE = ?, IMAGE = ? WHERE PRODUCTID = ?";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, product.getName());
@@ -93,7 +99,9 @@ public class ProductImpl implements ProductDao {
             preparedStatement.setDouble(5, product.getPrice());
             preparedStatement.setInt(6, product.getCount());
             preparedStatement.setString(7, product.getSpecification());
-            preparedStatement.setInt(8, product.getProductId());
+            preparedStatement.setInt(8,product.getArticle());
+            preparedStatement.setString(9,product.getImageUrl());
+            preparedStatement.setInt(10, product.getProductId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

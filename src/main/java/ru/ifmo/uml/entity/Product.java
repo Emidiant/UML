@@ -10,6 +10,8 @@ public class Product {
     private double price;
     private int count;
     private String specification;
+    private int article;
+    private String imageUrl;
 
     public Product() {
     }
@@ -76,6 +78,22 @@ public class Product {
 
     public void setSpecification(String specification) {
         this.specification = specification;
+    }
+
+    public int getArticle() {
+        return article;
+    }
+
+    public void setArticle(int article) {
+        this.article = article;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
