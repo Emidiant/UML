@@ -1,4 +1,4 @@
-package ru.ifmo.uml.entity;
+package ru.ifmo.uml.dal.dto;
 
 public class Administrator {
 

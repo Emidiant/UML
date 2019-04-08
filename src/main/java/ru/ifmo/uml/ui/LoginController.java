@@ -6,8 +6,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import ru.ifmo.uml.dal.dto.Administrator;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
-import ru.ifmo.uml.entity.Administrator;
+
 
 public class LoginController {
     //TODO back,login btn
@@ -31,7 +32,7 @@ public class LoginController {
         Administrator tempAdministrator = auth.getByLogin(txtUsername.getText());
         if (tempAdministrator.getPassword().equals(passPassword.getText())) {
             administrator = tempAdministrator;
-
+            System.out.println("Login successfully");
         }
     }
     @FXML

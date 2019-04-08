@@ -7,7 +7,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import ru.ifmo.uml.entity.Product;
+import ru.ifmo.uml.dal.dto.Product;
+
 
 import java.io.IOException;
 

@@ -1,7 +1,8 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Product;
 import ru.ifmo.uml.dal.interfaces.ProductDao;
-import ru.ifmo.uml.entity.Product;
+
 import ru.ifmo.uml.utils.ConnectionUtil;
 
 import java.sql.*;
