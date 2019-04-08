@@ -25,12 +25,18 @@ public class LoginController {
     @FXML
     void initialize(){
         auth = new AdministratorImpl();
+
+        //временно
+        txtUsername.setText("morgan");
+        passPassword.setText("123654");
     }
     @FXML
     private void btnLoginClicked(){
         Administrator tempAdministrator = auth.getByLogin(txtUsername.getText());
         if (tempAdministrator.getPassword().equals(passPassword.getText())) {
             administrator = tempAdministrator;
+            //в зависимости от уровня открывать coordinator page или logistic page
+            MainApp.showCoordPage();
 
         }
     }
