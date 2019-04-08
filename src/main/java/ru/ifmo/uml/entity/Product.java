@@ -1,26 +1,31 @@
 package ru.ifmo.uml.entity;
 
+
+import javafx.scene.image.Image;
+
+import java.util.List;
+
 public class Product {
 
-    private int productId;
+    private List<Integer> productId;
     private String name;
     private String type;
-    private int sizeId;
-    private int colorId;
+    private List<Integer> sizeIds;
+    private List<Integer> colorIds;
     private double price;
-    private int count;
+    private List<Integer> count;
     private String specification;
     private int article;
-    private String imageUrl;
+    private List<Image> images;
 
     public Product() {
     }
 
-    public int getProductId() {
+    public List<Integer> getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(List<Integer> productId) {
         this.productId = productId;
     }
 
@@ -40,20 +45,20 @@ public class Product {
         this.type = type;
     }
 
-    public int getSizeId() {
-        return sizeId;
+    public List<Integer> getSizeIds() {
+        return sizeIds;
     }
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
+    public void setSizeIds(List<Integer> sizeIds) {
+        this.sizeIds = sizeIds;
     }
 
-    public int getColorId() {
-        return colorId;
+    public List<Integer> getColorIds() {
+        return colorIds;
     }
 
-    public void setColorId(int colorId) {
-        this.colorId = colorId;
+    public void setColorIds(List<Integer> colorIds) {
+        this.colorIds = colorIds;
     }
 
     public double getPrice() {
@@ -64,11 +69,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getCount() {
+    public List<Integer> getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(List<Integer> count) {
         this.count = count;
     }
 
@@ -88,25 +93,11 @@ public class Product {
         this.article = article;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", sizeId=" + sizeId +
-                ", colorId=" + colorId +
-                ", price=" + price +
-                ", count=" + count +
-                ", specification='" + specification + '\'' +
-                '}';
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 }
