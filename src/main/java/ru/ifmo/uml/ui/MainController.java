@@ -10,18 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Pagination;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.entity.Product;
+import ru.ifmo.uml.ui.controllers.MainListCell;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainController {
 
@@ -45,7 +40,8 @@ public class MainController {
 
         products.removeAll(products);
         products.addAll(productImpl.getAll());
-        listview.getItems().addAll(products);
+        listview.setCellFactory(param -> new MainListCell());
+        listview.setItems(products);
 
 
 
