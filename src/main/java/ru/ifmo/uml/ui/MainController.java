@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class MainController {
 
-    private FXMLLoader loader;
+    private FXMLLoader loader = null;
 
     @FXML
     private Button loginButton;
@@ -38,7 +38,7 @@ public class MainController {
     void initialize() {
         ProductImpl productImpl = new ProductImpl();
 
-        products.removeAll(products);
+        products.clear();
         products.addAll(productImpl.getAll());
         listview.setCellFactory(param -> new MainListCell());
         listview.setItems(products);
@@ -60,8 +60,9 @@ public class MainController {
 
     @FXML
     void logIn(ActionEvent event) {
-
-        loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        MainApp.showLoginPage();
+        /*if (loader == null)
+            loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
 
         try {
             loader.load();
@@ -78,7 +79,7 @@ public class MainController {
 
         stage.setScene(new Scene(root));
         prevStage.close();
-        stage.show();
+        stage.show();*/
 
     }
 

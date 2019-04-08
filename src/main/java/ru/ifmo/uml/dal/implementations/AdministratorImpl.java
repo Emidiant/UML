@@ -107,4 +107,28 @@ public class AdministratorImpl implements AdministratorDao {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public Administrator getByLogin(String login) {
+        String query = "SELECT * FROM ADMINISTRATION WHERE LOGIN = ?";
+        Administrator administrator = null;
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, login);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                administrator = new Administrator();
+                administrator.setAdministratorId(rs.getInt("ADMINISTRATIONID"));
+                administrator.setSecondName(rs.getString("SECONDNAME"));
+                administrator.setFirstName(rs.getString("FIRSTNAME"));
+                administrator.setEmail(rs.getString("EMAIL"));
+                administrator.setLevel(rs.getString("LEVEL"));
+                administrator.setLogin(rs.getString("LOGIN"));
+                administrator.setPassword(rs.getString("PASSWORD"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return administrator;
+    }
 }

@@ -12,7 +12,9 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 
 public class MainApp extends Application {
-    private Stage primaryStage;
+    private static Stage primaryStage;
+    private static FXMLLoader loader = null;
+    private static Scene login = null;
     private BorderPane mainLayout;
     private Stage prevStage;
 
@@ -20,9 +22,9 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        this.primaryStage = stage;
-        this.primaryStage.getIcons().add(new Image("/image/239.png"));
-        this.primaryStage.setTitle(" Start page");
+        primaryStage = stage;
+        primaryStage.getIcons().add(new Image("/image/239.png"));
+        primaryStage.setTitle(" Start page");
         //showMainPage();
 
         FXMLLoader loader = new FXMLLoader();
@@ -38,18 +40,42 @@ public class MainApp extends Application {
 
     }
 
-    public void showMainPage() {
+    public static void showMainPage() {
         FXMLLoader loader = new FXMLLoader();
         try {
             Parent root = loader.load(MainController.class.getResourceAsStream("/fxml/hellopage.fxml"));
+            MainController mainController = loader.getController();
+            mainController.setStage(primaryStage);
             primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Store");
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public static void showLoginPage() {
+        if (loader == null)
+            loader = new FXMLLoader(MainApp.class.getResource("/fxml/login.fxml"));
+        if (login == null) {
+            try {
+                loader.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
 
+            //stage.getIcons().add(new Image("/image/239.png"));
+            primaryStage.setTitle(" Log In");
+            Parent root = loader.getRoot();
+            LoginController loginController = loader.getController();
+            loginController.setStage(primaryStage);
+            login = new Scene(root);
+        }
+        primaryStage.setScene(login);
+        //prevStage.close();
+        //stage.show();
+    }
 
 
     public static void main(String[] args) {
