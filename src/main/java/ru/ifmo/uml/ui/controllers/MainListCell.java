@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import ru.ifmo.uml.entity.Product;
@@ -42,8 +43,12 @@ public class MainListCell extends ListCell<Product> {
             name.setText(item.getName());
             info.setText(item.getSpecification());
             cost.setText(Double.toString(item.getPrice()));
-            //TODO add image, maybe color, maybe size
-            imageView.setImage(null);
+            //TODO add maybe color, maybe size
+            if (item.getImageUrl() != null){
+                imageView.setImage(new Image("/image/" + item.getImageUrl()));
+            }
+            else
+                imageView.setImage(null);
             setGraphic(anchorPane);
         }
     }
