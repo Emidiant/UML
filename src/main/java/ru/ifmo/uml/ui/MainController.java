@@ -12,9 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import ru.ifmo.uml.dal.dto.Product;
+
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 
+import ru.ifmo.uml.entity.Product;
 import ru.ifmo.uml.ui.controllers.MainListCell;
 
 import java.io.IOException;
@@ -37,10 +38,10 @@ public class MainController {
     Stage prevStage;
     @FXML
     void initialize() {
-        ProductImpl productImpl = new ProductImpl();
-
+        ProductRepository productRepository = new ProductRepository();
+        productRepository.load();
         products.clear();
-        products.addAll(productImpl.getAll());
+        products.addAll(productRepository.getProducts());
         listview.setCellFactory(param -> new MainListCell());
         listview.setItems(products);
 

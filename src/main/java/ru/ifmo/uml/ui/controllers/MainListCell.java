@@ -7,7 +7,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import ru.ifmo.uml.dal.dto.Product;
+import ru.ifmo.uml.entity.Product;
 
 
 import java.io.IOException;
@@ -45,8 +45,8 @@ public class MainListCell extends ListCell<Product> {
             info.setText(item.getSpecification());
             cost.setText(Double.toString(item.getPrice()));
             //TODO add maybe color, maybe size
-            if (item.getImageUrl() != null){
-                imageView.setImage(new Image("/image/" + item.getImageUrl()));
+            if (item.getImages().size() != 0){
+                imageView.setImage(item.getImages().get(0));
             }
             else
                 imageView.setImage(null);
