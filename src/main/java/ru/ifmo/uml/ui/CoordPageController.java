@@ -78,6 +78,7 @@ public class CoordPageController {
             OrdersListCell ordersListCell = new OrdersListCell();
 
             ordersListCell.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
+                //todo исключить из нажатий на строку нажатие на choice table
                 if (event.getButton() == MouseButton.PRIMARY && (!ordersListCell.isEmpty())) {
                     Order item = ordersListCell.getItem();
                     showDetails(item);
@@ -107,7 +108,6 @@ public class CoordPageController {
     }
 
     public void showDetails(Order item){
-        //System.out.println(item.toString());
         MainApp.showInfoOrderPage(item.getOrderId());
     }
 }

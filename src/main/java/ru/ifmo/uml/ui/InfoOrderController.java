@@ -40,7 +40,6 @@ public class InfoOrderController {
 
 
     public void initialize(){
-        System.out.println("normal" + id);
         fuckingId.setOnAction(event -> {
             createInfoTabView(id);
         });
@@ -59,6 +58,5 @@ public class InfoOrderController {
 
     public void setId(Integer id){
         this.id = id;
-        System.out.println(id+" aaa");
     }
 }

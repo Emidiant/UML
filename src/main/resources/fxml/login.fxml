@@ -31,12 +31,12 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <TextField fx:id="txtUsername" promptText="Username">
+                        <TextField fx:id="txtUsername" promptText="Username" style="-fx-background-radius: 10;">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <PasswordField fx:id="passPassword" promptText="Password" />
+                        <PasswordField fx:id="passPassword" promptText="Password" style="-fx-background-radius: 10;" />
                         <GridPane>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,12 +48,12 @@
                            <children>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="btnLogin" layoutX="14.0" mnemonicParsing="false" onAction="#btnLoginClicked" text="Log In" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                    <Button fx:id="btnLogin" layoutX="14.0" mnemonicParsing="false" onAction="#btnLoginClicked" style="-fx-background-radius: 10;" text="Log In" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Button fx:id="btnBack" layoutX="67.0" layoutY="2.0" mnemonicParsing="false" onAction="#btnBackClicked" text="Back" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                    <Button fx:id="btnBack" layoutX="67.0" layoutY="2.0" mnemonicParsing="false" onAction="#btnBackClicked" style="-fx-background-radius: 10;" text="Back" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -64,7 +64,7 @@
             </GridPane>
          </center>
          <top>
-            <ImageView fx:id="imgBig" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imgBig" fitHeight="300.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../image/239.png" />
                </image></ImageView>
