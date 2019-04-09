@@ -13,16 +13,19 @@ import java.util.Map;
 public class ProductRepository {
     private ProductDao productDAO;
     private Map<Integer,Product> products;
+    private Map<Integer,Integer> articles;
 
     public ProductRepository() {
         this.productDAO = new ProductImpl();
         this.products = new HashMap<>();
+        this.articles = new HashMap<>();
     }
     public void load(){
         products.clear();
         List<ru.ifmo.uml.dal.dto.Product> productDTOs = productDAO.getAll();
         for (ru.ifmo.uml.dal.dto.Product product : productDTOs){
             int article = product.getArticle();
+            articles.put(product.getProductId(),article);
             if (products.containsKey(article)){
                 Product oldProduct = products.get(article);
                 oldProduct.getColorIds().add(product.getSizeId());
@@ -60,6 +63,12 @@ public class ProductRepository {
     public List<Product> getProducts(){
         if (products == null) load();
         return new ArrayList<>(products.values());
+    }
+    public Product getProductByProductId(int productId){
+        return products.get(articles.get(productId));
+    }
+    public Product getProductByArticle(int article){
+        return products.get(article);
     }
 
 }
