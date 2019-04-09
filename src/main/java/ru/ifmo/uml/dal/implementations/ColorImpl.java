@@ -1,8 +1,9 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Color;
 import ru.ifmo.uml.dal.interfaces.ColorDao;
 import ru.ifmo.uml.utils.ConnectionUtil;
-import ru.ifmo.uml.entity.Color;
+
 
 import java.sql.*;
 import java.util.ArrayList;

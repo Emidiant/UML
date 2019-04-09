@@ -12,7 +12,9 @@ import java.io.IOException;
 
 public class MainApp extends Application {
     private static Stage primaryStage;
-    private static FXMLLoader loader = null;
+    private static FXMLLoader loaderLogin = null;
+    private static FXMLLoader loaderCoord = null;
+    private static FXMLLoader loaderInfo = null;
     private static Scene login = null;
     private static Scene admin = null;
     private static Scene info = null;
@@ -56,11 +58,11 @@ public class MainApp extends Application {
     }
 
     public static void showCoordPage() {
-        //if (loader == null)
-            loader = new FXMLLoader(MainApp.class.getResource("/fxml/coordpage.fxml"));
+        if (loaderCoord == null)
+            loaderCoord = new FXMLLoader(MainApp.class.getResource("/fxml/coordpage.fxml"));
         if (admin == null) {
             try {
-                loader.load();
+                loaderCoord.load();
             } catch (IOException e) {
                 System.out.println("Error");
                 e.printStackTrace();
@@ -68,8 +70,8 @@ public class MainApp extends Application {
 
             //stage.getIcons().add(new Image("/image/239.png"));
             primaryStage.setTitle("Сoordinator");
-            Parent root = loader.getRoot();
-            CoordPageController coordPageController = loader.getController();
+            Parent root = loaderCoord.getRoot();
+            CoordPageController coordPageController = loaderCoord.getController();
             coordPageController.setStage(primaryStage);
             admin = new Scene(root);
         }
@@ -77,19 +79,19 @@ public class MainApp extends Application {
     }
 
     public static void showInfoOrderPage(Integer id) {
-        //if (loader == null)
-            loader = new FXMLLoader(MainApp.class.getResource("/fxml/infoorderpage.fxml"));
+        if (loaderInfo == null)
+            loaderInfo = new FXMLLoader(MainApp.class.getResource("/fxml/infoorderpage.fxml"));
         if (info == null) {
             try {
-                loader.load();
+                loaderInfo.load();
             } catch (IOException e) {
                 System.out.println("Error");
                 e.printStackTrace();
             }
 
             primaryStage.setTitle("Information");
-            Parent root = loader.getRoot();
-            InfoOrderController infoOrderController = loader.getController();
+            Parent root = loaderInfo.getRoot();
+            InfoOrderController infoOrderController = loaderInfo.getController();
             infoOrderController.setId(id);//todo поздно доходит, надо как-то разумно исправить, в прошлый раз закрывала костылём
             infoOrderController.setStage(primaryStage);
 
@@ -100,11 +102,11 @@ public class MainApp extends Application {
     }
 
     public static void showLoginPage() {
-        if (loader == null)
-            loader = new FXMLLoader(MainApp.class.getResource("/fxml/login.fxml"));
+        if (loaderLogin == null)
+            loaderLogin = new FXMLLoader(MainApp.class.getResource("/fxml/login.fxml"));
         if (login == null) {
             try {
-                loader.load();
+                loaderLogin.load();
             } catch (IOException e) {
                 System.out.println("Error");
                 e.printStackTrace();
@@ -112,8 +114,8 @@ public class MainApp extends Application {
 
             //stage.getIcons().add(new Image("/image/239.png"));
             primaryStage.setTitle(" Log In");
-            Parent root = loader.getRoot();
-            LoginController loginController = loader.getController();
+            Parent root = loaderLogin.getRoot();
+            LoginController loginController = loaderLogin.getController();
             loginController.setStage(primaryStage);
             login = new Scene(root);
         }

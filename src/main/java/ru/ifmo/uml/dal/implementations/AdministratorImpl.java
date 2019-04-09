@@ -1,7 +1,8 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Administrator;
 import ru.ifmo.uml.dal.interfaces.AdministratorDao;
-import ru.ifmo.uml.entity.Administrator;
+
 import ru.ifmo.uml.utils.ConnectionUtil;
 
 import java.sql.*;

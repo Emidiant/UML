@@ -1,8 +1,9 @@
 package ru.ifmo.uml.dal.interfaces;
 
-import ru.ifmo.uml.entity.Order;
-import ru.ifmo.uml.entity.ProductOrder;
+
 import javafx.util.Pair;
+import ru.ifmo.uml.dal.dto.Order;
+import ru.ifmo.uml.dal.dto.ProductOrder;
 
 import java.util.List;
 

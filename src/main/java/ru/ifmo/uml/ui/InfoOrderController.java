@@ -8,12 +8,15 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import ru.ifmo.uml.dal.dto.Order;
+import ru.ifmo.uml.dal.dto.Product;
+import ru.ifmo.uml.dal.dto.ProductOrder;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
-import ru.ifmo.uml.entity.Order;
-import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.entity.ProductOrder;
+
+
+
 import ru.ifmo.uml.ui.controllers.OrdersListCell;
 import ru.ifmo.uml.ui.controllers.ProductListCell;
 import ru.ifmo.uml.ui.controllers.StockListCell;
@@ -43,7 +46,6 @@ public class InfoOrderController {
     private ChoiceBox<String> choiceStatus;
 
     //ObservableList<Order> ordersList = FXCollections.observableArrayList();
-    Map<Product, Integer> productCount;
 
     ObservableList<Product> productList = FXCollections.observableArrayList();
 
@@ -53,36 +55,33 @@ public class InfoOrderController {
     private Integer id;
 
 
-    public void setStage(Stage stage) {
+    public void setStage(Stage stage){
         this.prevStage = stage;
     }
 
 
-    public void initialize() {
-        productCount = new HashMap<>();
+    public void initialize(){
+
 
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id){
         this.id = id;
         createInfo(id);
     }
 
-    public void createInfo(Integer id) {
+    public void createInfo(Integer id){
         OrderImpl orderImpl = new OrderImpl();
         Order order = orderImpl.getById(id);
         ProductImpl productImpl = new ProductImpl();
         Product product = new Product();
         ProductOrderImpl productOrderImpl = new ProductOrderImpl();
-        ArrayList<Integer> count = new ArrayList<>();
-
+        Pair<Integer, Integer> pair = new Pair<>(order.getOrderId(), order.getCustomerId());
 
         List<ProductOrder> productOrders = productOrderImpl.getByOrderId(order);
-        for (ProductOrder p : productOrders) {
+        for (ProductOrder p : productOrders){
             product = productImpl.getById(p.getProductId());
 
-            //count.add(p.getCount());
-            productCount.put(product, p.getCount());
             productList.add(product);
             //System.out.println(product.toString());
         }
@@ -92,7 +91,7 @@ public class InfoOrderController {
         orderId.setText(Integer.toString(order.getOrderId()));
         customerId.setText(Integer.toString(order.getCustomerId()));
 
-        choiceStatus.getItems().addAll("not confirmed", "confirmed", "transferred to delivery service", "closed", "canceled");
+        choiceStatus.getItems().addAll("not confirmed", "confirmed", "transferred to delivery service","closed", "canceled");
         choiceStatus.setValue(order.getStatus());
 
         saveStatus.setOnAction(e -> {
@@ -103,17 +102,8 @@ public class InfoOrderController {
         });
     }
 
-    public void createProductList(ObservableList productList) {
-        //ProductListCell productListCell = new ProductListCell();
-        //productListCell.setCountCustomer(count);
-        productlistview.setCellFactory(param -> new ProductListCell() {
-            @Override
-            protected void updateItem(Product item, boolean empty) {
-                super.updateItem(item, empty);
-                setCountCustomer(productCount);
-            }
-        });
+    public void createProductList(ObservableList productList){
+        productlistview.setCellFactory(param -> new ProductListCell());
         productlistview.setItems(productList);
-
     }
 }

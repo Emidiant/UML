@@ -1,7 +1,7 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Size;
 import ru.ifmo.uml.dal.interfaces.SizeDao;
-import ru.ifmo.uml.entity.Size;
 import ru.ifmo.uml.utils.ConnectionUtil;
 
 import java.sql.*;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SizeImpl implements SizeDao {
+
     @Override
     public void add(Size size) {
         String query = "INSERT INTO SIZE(SIZENAME) VALUES(?)";

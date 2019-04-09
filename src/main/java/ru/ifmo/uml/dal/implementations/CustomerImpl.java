@@ -1,7 +1,8 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Customer;
 import ru.ifmo.uml.dal.interfaces.CustomerDao;
-import ru.ifmo.uml.entity.Customer;
+
 import ru.ifmo.uml.utils.ConnectionUtil;
 
 import java.sql.*;

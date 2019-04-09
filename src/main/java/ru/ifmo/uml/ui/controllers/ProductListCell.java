@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
-import ru.ifmo.uml.entity.Order;
-import ru.ifmo.uml.entity.Product;
+import ru.ifmo.uml.dal.dto.Product;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
