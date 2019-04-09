@@ -18,6 +18,7 @@ import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
 
 
 import ru.ifmo.uml.ui.controllers.OrdersListCell;
+import ru.ifmo.uml.ui.controllers.ProductListCell;
 import ru.ifmo.uml.ui.controllers.StockListCell;
 
 import java.util.ArrayList;
@@ -25,10 +26,7 @@ import java.util.List;
 
 public class InfoOrderController {
     @FXML
-    private ListView<Order> orderslistview;
-
-    @FXML
-    private Button fuckingId;
+    private ListView<Product> productlistview;
 
     @FXML
     private Label orderId;
@@ -47,7 +45,7 @@ public class InfoOrderController {
 
     //ObservableList<Order> ordersList = FXCollections.observableArrayList();
 
-    //ObservableList<Product> productList = FXCollections.observableArrayList();
+    ObservableList<Product> productList = FXCollections.observableArrayList();
 
     //ObservableList<Customer> customerList = FXCollections.observableArrayList();
 
@@ -61,12 +59,13 @@ public class InfoOrderController {
 
 
     public void initialize(){
-        fuckingId.setOnAction(event -> createInfo(id));
+
 
     }
 
     public void setId(Integer id){
         this.id = id;
+        createInfo(id);
     }
 
     public void createInfo(Integer id){
@@ -81,8 +80,12 @@ public class InfoOrderController {
         for (ProductOrder p : productOrders){
             //TODO change to repository
             product = productImpl.getById(p.getProductId());
-            System.out.println(product.toString());
+
+            productList.add(product);
+            //System.out.println(product.toString());
         }
+        createProductList(productList);
+
         deliveryType.setText(order.getDeliveryType());
         orderId.setText(Integer.toString(order.getOrderId()));
         customerId.setText(Integer.toString(order.getCustomerId()));
@@ -93,8 +96,13 @@ public class InfoOrderController {
         saveStatus.setOnAction(e -> {
             OrderImpl orderImpl1 = new OrderImpl();
             order.setStatus(choiceStatus.getValue());
-            System.out.println(order.getStatus() + " " + order.getOrderId());
+            //System.out.println(order.getStatus() + " " + order.getOrderId());
             orderImpl1.update(order);
         });
+    }
+
+    public void createProductList(ObservableList productList){
+        productlistview.setCellFactory(param -> new ProductListCell());
+        productlistview.setItems(productList);
     }
 }
