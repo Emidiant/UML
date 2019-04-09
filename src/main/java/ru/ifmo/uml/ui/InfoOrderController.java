@@ -8,12 +8,15 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import ru.ifmo.uml.dal.dto.Order;
+import ru.ifmo.uml.dal.dto.Product;
+import ru.ifmo.uml.dal.dto.ProductOrder;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
-import ru.ifmo.uml.entity.Order;
-import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.entity.ProductOrder;
+
+
+
 import ru.ifmo.uml.ui.controllers.OrdersListCell;
 import ru.ifmo.uml.ui.controllers.StockListCell;
 
@@ -58,9 +61,7 @@ public class InfoOrderController {
 
 
     public void initialize(){
-        fuckingId.setOnAction(event -> {
-            createInfo(id);
-        });
+        fuckingId.setOnAction(event -> createInfo(id));
 
     }
 
@@ -78,6 +79,7 @@ public class InfoOrderController {
 
         List<ProductOrder> productOrders = productOrderImpl.getByOrderId(order);
         for (ProductOrder p : productOrders){
+            //TODO change to repository
             product = productImpl.getById(p.getProductId());
             System.out.println(product.toString());
         }

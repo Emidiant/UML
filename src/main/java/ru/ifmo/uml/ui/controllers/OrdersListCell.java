@@ -7,8 +7,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
+import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
-import ru.ifmo.uml.entity.Order;
+
 
 import java.io.IOException;
 

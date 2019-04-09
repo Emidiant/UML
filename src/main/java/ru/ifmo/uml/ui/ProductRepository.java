@@ -59,4 +59,5 @@ public class ProductRepository {
         if (products == null) load();
         return new ArrayList<>(products.values());
     }
+
 }

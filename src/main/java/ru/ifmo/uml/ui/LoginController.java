@@ -1,5 +1,6 @@
 package ru.ifmo.uml.ui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -30,8 +31,13 @@ public class LoginController {
         txtUsername.setText("morgan");
         passPassword.setText("123654");
     }
+
     @FXML
-    private void btnLoginСlicked(){
+    private void btnBackClicked(){
+        MainApp.showMainPage();
+    }
+
+    public void btnLoginClicked(ActionEvent actionEvent) {
         Administrator tempAdministrator = auth.getByLogin(txtUsername.getText());
         if (tempAdministrator.getPassword().equals(passPassword.getText())) {
             administrator = tempAdministrator;
@@ -40,9 +46,5 @@ public class LoginController {
 
             System.out.println("Login successfully");
         }
-    }
-    @FXML
-    private void btnBackClicked(){
-        MainApp.showMainPage();
     }
 }

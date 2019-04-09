@@ -1,5 +1,6 @@
 package ru.ifmo.uml.dal.implementations;
 
+import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.dto.ProductOrder;
 import ru.ifmo.uml.dal.interfaces.ProductOrderDao;
 import javafx.util.Pair;
