@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
+import ru.ifmo.uml.dal.dto.Product;
 
-import ru.ifmo.uml.entity.Product;
 
 import java.io.IOException;
 
@@ -51,8 +51,8 @@ public class StockListCell extends ListCell<Product> {
                 }
             }
             productName.setText(item.getName());
-            count.setText(Integer.toString(item.getCount().get(1)));
-            productId.setText(Integer.toString(item.getProductId().get(1)));
+            count.setText(Integer.toString(item.getCount()));
+            productId.setText(Integer.toString(item.getProductId()));
             price.setText(Double.toString(item.getPrice()));
             type.setText(item.getType());
             article.setText(Integer.toString(item.getArticle()));

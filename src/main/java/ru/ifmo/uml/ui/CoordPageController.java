@@ -11,11 +11,12 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ru.ifmo.uml.dal.dto.Order;
+import ru.ifmo.uml.dal.dto.Product;
 import ru.ifmo.uml.dal.implementations.CustomerImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 
-import ru.ifmo.uml.entity.Product;
+
 import ru.ifmo.uml.ui.controllers.MainListCell;
 import ru.ifmo.uml.ui.controllers.OrdersListCell;
 import ru.ifmo.uml.ui.controllers.StockListCell;
@@ -97,12 +98,10 @@ public class CoordPageController {
     }
 
     public void createTabStockView() {
-        ProductRepository productRepository = new ProductRepository();
-        productRepository.load();
-        //ProductImpl productImpl = new ProductImpl();
+        // TODO maybe change to repository
+        ProductImpl productImpl = new ProductImpl();
         productList.clear();
-        //productList.addAll(productImpl.getAll());
-        productList.addAll(productRepository.getProducts());
+        productList.addAll(productImpl.getAll());
         stocklistview.setCellFactory(param -> new StockListCell());
         stocklistview.setItems(productList);
     }
