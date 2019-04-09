@@ -1,6 +1,5 @@
 package ru.ifmo.uml.ui.controllers;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -10,7 +9,6 @@ import ru.ifmo.uml.dal.dto.Product;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class ProductListCell extends ListCell<Product> {
