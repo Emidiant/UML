@@ -72,15 +72,16 @@ public class InfoOrderController {
         Product product = new Product();
         ProductOrderImpl productOrderImpl = new ProductOrderImpl();
         Pair<Integer, Integer> pair = new Pair<>(order.getOrderId(), order.getCustomerId());
+        ArrayList<Integer> count = new ArrayList<>();
 
         List<ProductOrder> productOrders = productOrderImpl.getByOrderId(order);
         for (ProductOrder p : productOrders){
             product = productImpl.getById(p.getProductId());
-
+            count.add(p.getCount());
             productList.add(product);
             //System.out.println(product.toString());
         }
-        createProductList(productList);
+        createProductList(productList, count);
 
         deliveryType.setText(order.getDeliveryType());
         orderId.setText(Integer.toString(order.getOrderId()));
@@ -97,8 +98,11 @@ public class InfoOrderController {
         });
     }
 
-    public void createProductList(ObservableList productList){
-        productlistview.setCellFactory(param -> new ProductListCell());
+    public void createProductList(ObservableList productList, ArrayList count){
+        ProductListCell productListCell = new ProductListCell();
+        productListCell.setCountCustomer(count);
+        productlistview.setCellFactory(param -> productListCell);
         productlistview.setItems(productList);
+
     }
 }

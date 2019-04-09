@@ -9,8 +9,11 @@ import ru.ifmo.uml.entity.Order;
 import ru.ifmo.uml.entity.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProductListCell extends ListCell<Product> {
+
+    ArrayList<Integer> countCustomer = new ArrayList<>();
 
     @FXML
     private AnchorPane anchorPane;
@@ -30,8 +33,16 @@ public class ProductListCell extends ListCell<Product> {
     @FXML
     private Label count;
 
+    @FXML
+    private Label countCust;
+
+
     private FXMLLoader fxmlLoader;
 
+
+    public void setCountCustomer(ArrayList countCustomer){
+        this.countCustomer = countCustomer;
+    }
 
     @Override
     protected void updateItem(Product item, boolean empty) {
@@ -56,6 +67,7 @@ public class ProductListCell extends ListCell<Product> {
             productId.setText(Integer.toString(item.getProductId()));
             price.setText(Double.toString(item.getPrice()));
             count.setText(Integer.toString(item.getCount()));
+            //countCust.setText(Integer.toString(this.countCustomer.get(1)));
 
             setGraphic(anchorPane);
         }

@@ -24,5 +24,6 @@
         </Label>
         <Label fx:id="price" layoutX="385.0" layoutY="22.0" text="price" />
       <Label fx:id="count" layoutX="484.0" layoutY="22.0" text="count" />
+      <Label fx:id="countCust" layoutX="587.0" layoutY="23.0" text="CC" />
     </children>
 </AnchorPane>
