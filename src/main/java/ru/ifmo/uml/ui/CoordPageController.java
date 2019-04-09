@@ -44,9 +44,6 @@ public class CoordPageController {
     @FXML
     private Tab stock;
 
-    @FXML
-    private Button saveStatus;
-
     Stage prevStage;
 
 

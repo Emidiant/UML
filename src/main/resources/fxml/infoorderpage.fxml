@@ -25,6 +25,14 @@
                   <Text layoutX="26.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" />
                   <Text layoutX="30.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" />
                   <ListView fx:id="productlistview" layoutX="-1.0" layoutY="320.0" prefHeight="208.0" prefWidth="800.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Text layoutX="540.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество товара на складе" textAlignment="CENTER" wrappingWidth="114.71533203125" />
+                  <Text layoutX="666.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество товара в заказе" textAlignment="CENTER" wrappingWidth="130.87646484375" />
+                  <Text layoutX="13.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название товара" />
+                  <Text layoutX="163.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип" />
+                  <Text layoutX="236.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID товара" />
+                  <Text layoutX="328.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цена за шт" />
+                  <Text layoutX="418.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Размер" />
+                  <Text layoutX="494.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цвет" />
                </children>
             </AnchorPane>
          </center></BorderPane>
@@ -33,5 +41,6 @@
             <Font size="24.0" />
          </font>
       </Text>
+      <Button fx:id="backButton" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" text="Back" />
     </children>
 </AnchorPane>
