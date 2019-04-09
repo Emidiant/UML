@@ -40,6 +40,10 @@ public class InfoOrderController {
     private Button saveStatus;
 
     @FXML
+    private Button backButton;
+
+
+    @FXML
     private ChoiceBox<String> choiceStatus;
 
     //ObservableList<Order> ordersList = FXCollections.observableArrayList();
@@ -61,6 +65,10 @@ public class InfoOrderController {
     public void initialize() {
         productCount = new HashMap<>();
 
+        backButton.setOnAction(event -> {
+            MainApp.showCoordPage();
+        });
+
     }
 
     public void setId(Integer id) {
@@ -81,10 +89,8 @@ public class InfoOrderController {
         for (ProductOrder p : productOrders) {
             product = productImpl.getById(p.getProductId());
 
-            //count.add(p.getCount());
             productCount.put(product, p.getCount());
             productList.add(product);
-            //System.out.println(product.toString());
         }
         createProductList(productList);
 
@@ -98,14 +104,11 @@ public class InfoOrderController {
         saveStatus.setOnAction(e -> {
             OrderImpl orderImpl1 = new OrderImpl();
             order.setStatus(choiceStatus.getValue());
-            //System.out.println(order.getStatus() + " " + order.getOrderId());
             orderImpl1.update(order);
         });
     }
 
     public void createProductList(ObservableList productList) {
-        //ProductListCell productListCell = new ProductListCell();
-        //productListCell.setCountCustomer(count);
         productlistview.setCellFactory(param -> new ProductListCell() {
             @Override
             protected void updateItem(Product item, boolean empty) {

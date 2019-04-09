@@ -94,7 +94,7 @@ public class MainApp extends Application {
             primaryStage.setTitle("Information");
             Parent root = loaderInfo.getRoot();
             InfoOrderController infoOrderController = loaderInfo.getController();
-            infoOrderController.setId(id);//todo поздно доходит, надо как-то разумно исправить, в прошлый раз закрывала костылём
+            infoOrderController.setId(id);
             infoOrderController.setStage(primaryStage);
 
 
