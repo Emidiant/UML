@@ -27,12 +27,10 @@ public class OrdersListCell extends ListCell<Order> {
     private Label deliveryType;
 
     @FXML
-    private Button saveStatus;
+    private Label status;
 
     private FXMLLoader fxmlLoader;
 
-    @FXML
-    private ChoiceBox<String> choiceStatus;
 
     @Override
     protected void updateItem(Order item, boolean empty) {
@@ -52,23 +50,7 @@ public class OrdersListCell extends ListCell<Order> {
                 }
             }
 
-            //todo итемы плодятся как кролики после перехода с одного tab на другой, спасите
-            choiceStatus.getItems().addAll("not confirmed", "confirmed", "transferred to delivery service","closed", "canceled");
-            choiceStatus.setValue(item.getStatus());
-
-
-
-            //todo так блет, где это действие надо писать, какие-то стремные ошибки иногда проскакивают, но работает
-
-            saveStatus.setOnAction(event -> {
-                OrderImpl orderImpl = new OrderImpl();
-                item.setStatus(choiceStatus.getValue());
-                System.out.println(item.getStatus() + " " + item.getOrderId());
-                orderImpl.update(item);
-            });
-
-
-
+            status.setText(item.getStatus());
             deliveryType.setText(item.getDeliveryType());
             orderId.setText(Integer.toString(item.getOrderId()));
             customerId.setText(Integer.toString(item.getCustomerId()));

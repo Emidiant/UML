@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-import ru.ifmo.uml.ui.controllers.InfoOrderListCell;
 
 import java.io.IOException;
 

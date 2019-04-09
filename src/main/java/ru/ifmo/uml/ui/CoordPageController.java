@@ -16,7 +16,6 @@ import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.entity.Customer;
 import ru.ifmo.uml.entity.Order;
 import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.ui.controllers.InfoOrderListCell;
 import ru.ifmo.uml.ui.controllers.MainListCell;
 import ru.ifmo.uml.ui.controllers.OrdersListCell;
 import ru.ifmo.uml.ui.controllers.StockListCell;

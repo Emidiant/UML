@@ -1,6 +1,7 @@
 package ru.ifmo.uml.dal.implementations;
 
 import ru.ifmo.uml.dal.interfaces.ProductOrderDao;
+import ru.ifmo.uml.entity.Order;
 import ru.ifmo.uml.entity.ProductOrder;
 import javafx.util.Pair;
 import ru.ifmo.uml.utils.ConnectionUtil;
@@ -52,6 +53,7 @@ public class ProductOrderImpl implements ProductOrderDao {
     public ProductOrder getById(Pair<Integer, Integer> ids) {
         String query = "SELECT * FROM PRODUCTORDER WHERE PRODUCTID = ? AND ORDERID = ?";
         ProductOrder productOrder = null;
+
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, ids.getKey());
@@ -94,5 +96,28 @@ public class ProductOrderImpl implements ProductOrderDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public List<ProductOrder> getByOrderId(Order order) {
+        String query = "SELECT * FROM PRODUCTORDER WHERE ORDERID = ?";
+        ProductOrder productOrder = null;
+        List<ProductOrder> productOrders = new ArrayList<>();
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, order.getOrderId());
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                productOrder = new ProductOrder();
+                productOrder.setProductId(rs.getInt("PRODUCTID"));
+                productOrder.setOrderId(rs.getInt("ORDERID"));
+                productOrder.setCount(rs.getInt("COUNT"));
+                productOrders.add(productOrder);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return productOrders;
     }
 }
