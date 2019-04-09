@@ -15,9 +15,11 @@ public class MainApp extends Application {
     private static FXMLLoader loaderLogin = null;
     private static FXMLLoader loaderCoord = null;
     private static FXMLLoader loaderInfo = null;
+    private static FXMLLoader loaderCart = null;
     private static Scene login = null;
     private static Scene admin = null;
     private static Scene info = null;
+    private static Scene cart = null;
     private BorderPane mainLayout;
     private Stage prevStage;
 
@@ -124,6 +126,25 @@ public class MainApp extends Application {
         //stage.show();
     }
 
+    public static void showCartPage() {
+        if (loaderCart == null)
+            loaderCart = new FXMLLoader(MainApp.class.getResource("/fxml/cart.fxml"));
+        if (cart == null) {
+            try {
+                loaderCart.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            primaryStage.setTitle(" Log In");
+            Parent root = loaderCart.getRoot();
+            LoginController loginController = loaderCart.getController();
+            loginController.setStage(primaryStage);
+            cart = new Scene(root);
+        }
+        primaryStage.setScene(login);
+    }
 
     public static void main(String[] args) {
         launch(args);

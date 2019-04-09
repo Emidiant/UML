@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 
+import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
 import ru.ifmo.uml.ui.controllers.MainListCell;
 
@@ -33,25 +34,25 @@ public class MainController {
     @FXML
     private ListView<Product> listview;
 
+    private Cart cart;
     ObservableList<Product> products = FXCollections.observableArrayList();
 
     Stage prevStage;
     @FXML
     void initialize() {
+        cart = new Cart();
         ProductRepository productRepository = new ProductRepository();
         productRepository.load();
         products.clear();
         products.addAll(productRepository.getProducts());
-        listview.setCellFactory(param -> new MainListCell());
+        listview.setCellFactory(param -> new MainListCell(){
+            @Override
+            protected void updateItem(Product item, boolean empty){
+                super.updateItem(item,empty);
+                this.setCart(cart);
+            }
+        });
         listview.setItems(products);
-
-
-
-        //List<Product> productList = productImpl.getAll();
-        //for (Product p : productList){
-        //    System.out.println(p);
-        //}
-
         poweroffButton.setOnMouseClicked(e -> System.exit(0));
     }
 
@@ -63,27 +64,11 @@ public class MainController {
     @FXML
     void logIn(ActionEvent event) {
         MainApp.showLoginPage();
-        /*if (loader == null)
-            loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
 
-        try {
-            loader.load();
-        } catch (IOException e) {
-            System.out.println("Error");
-            e.printStackTrace();
-        }
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.getIcons().add(new Image("/image/239.png"));
-        stage.setTitle(" Log In");
-        Parent root = loader.getRoot();
-        LoginController loginController = loader.getController();
-        loginController.setStage(stage);
-
-        stage.setScene(new Scene(root));
-        prevStage.close();
-        stage.show();*/
 
     }
 
+    public void btnCartClicked(ActionEvent actionEvent) {
+    }
 }
 

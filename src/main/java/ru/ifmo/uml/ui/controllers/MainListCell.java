@@ -7,6 +7,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
 
 
@@ -27,6 +28,7 @@ public class MainListCell extends ListCell<Product> {
     private FXMLLoader fxmlLoader;
     private int count = 0;
     private Product item;
+    private Cart cart;
     @Override
     protected void updateItem(Product item, boolean empty) {
         super.updateItem(item, empty);
@@ -67,6 +69,15 @@ public class MainListCell extends ListCell<Product> {
     }
     @FXML
     public void btnAddToCartPressed(){
-        // TODO add to cart
+        if (cart != null){
+            cart.addProduct(item.getArticle());
+            System.out.println(cart.getProducts().toString());
+        }
+        else
+            System.err.println("Error mainlistcell");
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }
