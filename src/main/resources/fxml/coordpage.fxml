@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.CoordPageController">
+   <children>
+      <TabPane prefHeight="575.0" prefWidth="651.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="orders" text="Orders">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <ListView fx:id="orderslistview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="100.0" />
+                                 </BorderPane.margin></ListView>
+                           </center>
+                           <top>
+                              <AnchorPane prefHeight="43.0" prefWidth="819.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Text layoutX="46.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderID" AnchorPane.leftAnchor="46.0" />
+                                    <Text layoutX="174.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerId" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="573.7412109375" />
+                                    <Text layoutX="346.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" AnchorPane.leftAnchor="345.64453125" AnchorPane.rightAnchor="389.2109375" />
+                                    <Text layoutX="532.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" AnchorPane.leftAnchor="532.0" AnchorPane.rightAnchor="247.70166015625" />
+                                 </children>
+                              </AnchorPane>
+                           </top>
+                           <bottom>
+                              <Button fx:id="saveStatus" mnemonicParsing="false" text="Save status?" BorderPane.alignment="CENTER_RIGHT">
+                                 <BorderPane.margin>
+                                    <Insets bottom="15.0" right="30.0" />
+                                 </BorderPane.margin>
+                              </Button>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="stock" text="Stock">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="105.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <AnchorPane prefHeight="55.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Text layoutX="38.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="674.30712890625" />
+                                    <Text layoutX="214.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product ID" AnchorPane.leftAnchor="214.0" AnchorPane.rightAnchor="520.94287109375" />
+                                    <Text layoutX="475.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="288.11376953125" />
+                                    <Text layoutX="368.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" AnchorPane.leftAnchor="368.0" AnchorPane.rightAnchor="400.89013671875" />
+                                    <Text layoutX="591.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" AnchorPane.leftAnchor="591.0" AnchorPane.rightAnchor="178.353515625" />
+                                    <Text layoutX="690.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Article" AnchorPane.leftAnchor="690.0" AnchorPane.rightAnchor="70.390625" />
+                                 </children>
+                              </AnchorPane>
+                           </top>
+                           <center>
+                              <ListView fx:id="stocklistview" prefHeight="424.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="150.0" />
+                                 </BorderPane.margin>
+                              </ListView>
+                           </center>
+                           <bottom>
+                              <Button mnemonicParsing="false" text="Create Supply" BorderPane.alignment="TOP_RIGHT">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </BorderPane.margin>
+                              </Button>
+                           </bottom>
+                        </BorderPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
