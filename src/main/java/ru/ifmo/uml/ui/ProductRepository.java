@@ -29,7 +29,9 @@ public class ProductRepository {
                 oldProduct.getSizeIds().add(product.getSizeId());
                 oldProduct.getProductId().add(product.getProductId());
                 oldProduct.getCount().add(product.getCount());
-                oldProduct.getImages().add(new Image(product.getImageUrl()));
+                if (product.getImageUrl() != null)
+                    oldProduct.getImages().add(new Image("/image/" +product.getImageUrl()));
+                else oldProduct.getImages().add(null);
             }
             else {
                 Product newProduct = new Product();
