@@ -25,9 +25,12 @@ public class MainListCell extends ListCell<Product> {
     @FXML
     private ImageView imageView;
     private FXMLLoader fxmlLoader;
+    private int count = 0;
+    private Product item;
     @Override
     protected void updateItem(Product item, boolean empty) {
         super.updateItem(item, empty);
+        this.item = item;
         if (empty || item == null){
             setText(null);
             setGraphic(null);
@@ -46,11 +49,24 @@ public class MainListCell extends ListCell<Product> {
             cost.setText(Double.toString(item.getPrice()));
             //TODO add maybe color, maybe size
             if (item.getImages().size() != 0){
-                imageView.setImage(item.getImages().get(0));
+                imageView.setImage(item.getImages().get(count));
             }
             else
                 imageView.setImage(null);
             setGraphic(anchorPane);
         }
+    }
+    @FXML
+    public void imgViewClicked(){
+        if (item.getImages().size() != 0){
+            count = (count + 1) % item.getImages().size();
+            imageView.setImage(item.getImages().get(count));
+        }
+        else
+            imageView.setImage(null);
+    }
+    @FXML
+    public void btnAddToCartPressed(){
+        // TODO add to cart
     }
 }

@@ -31,7 +31,7 @@ public class ProductRepository {
                 oldProduct.getCount().add(product.getCount());
                 if (product.getImageUrl() != null)
                     oldProduct.getImages().add(new Image("/image/" +product.getImageUrl()));
-                else oldProduct.getImages().add(null);
+                else oldProduct.getImages().add(new Image("/image/no-image.png"));
             }
             else {
                 Product newProduct = new Product();
@@ -51,7 +51,7 @@ public class ProductRepository {
                 newProduct.setImages(new ArrayList<>());
                 if (product.getImageUrl() != null)
                     newProduct.getImages().add(new Image("/image/" +product.getImageUrl()));
-                else newProduct.getImages().add(null);
+                else newProduct.getImages().add(new Image("/image/no-image.png"));
                 products.put(product.getArticle(),newProduct);
             }
         }
