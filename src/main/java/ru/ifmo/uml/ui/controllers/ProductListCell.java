@@ -1,5 +1,6 @@
 package ru.ifmo.uml.ui.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -10,10 +11,11 @@ import ru.ifmo.uml.entity.Product;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ProductListCell extends ListCell<Product> {
 
-    ArrayList<Integer> countCustomer = new ArrayList<>();
+    Map<Product, Integer> productCount;
 
     @FXML
     private AnchorPane anchorPane;
@@ -36,12 +38,12 @@ public class ProductListCell extends ListCell<Product> {
     @FXML
     private Label countCust;
 
-
     private FXMLLoader fxmlLoader;
 
 
-    public void setCountCustomer(ArrayList countCustomer){
-        this.countCustomer = countCustomer;
+
+    public void setCountCustomer(Map<Product, Integer> productCount){
+        this.productCount = productCount;
     }
 
     @Override
@@ -61,13 +63,14 @@ public class ProductListCell extends ListCell<Product> {
                     e.printStackTrace();
                 }
             }
-
             name.setText(item.getName());
             type.setText(item.getType());
             productId.setText(Integer.toString(item.getProductId()));
             price.setText(Double.toString(item.getPrice()));
             count.setText(Integer.toString(item.getCount()));
-            //countCust.setText(Integer.toString(this.countCustomer.get(1)));
+
+            countCust.setText(Integer.toString(this.productCount.get(item)));
+
 
             setGraphic(anchorPane);
         }
