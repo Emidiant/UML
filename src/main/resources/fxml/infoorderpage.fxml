@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -11,21 +12,19 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.InfoOrderController">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <top>
-            <Button fx:id="fuckingId" mnemonicParsing="false" text="Во славу сатаны!" BorderPane.alignment="CENTER" />
-         </top>
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="orderId" layoutX="177.0" layoutY="160.0" text="orId" />
-                  <Label fx:id="deliveryType" layoutX="175.0" layoutY="220.0" text="deliv" />
-                  <Label fx:id="customerId" layoutX="176.0" layoutY="286.0" text="cust" />
-                  <ChoiceBox fx:id="choiceStatus" layoutX="522.0" layoutY="155.0" prefWidth="150.0" />
-                  <Text layoutX="569.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-                  <Button fx:id="saveStatus" layoutX="710.0" layoutY="155.0" mnemonicParsing="false" text="Save" />
-                  <Text layoutX="43.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID" />
-                  <Text layoutX="27.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" />
-                  <Text layoutX="30.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" />
+                  <Label fx:id="orderId" layoutX="177.0" layoutY="35.0" text="orId" />
+                  <Label fx:id="deliveryType" layoutX="175.0" layoutY="73.0" text="deliv" />
+                  <Label fx:id="customerId" layoutX="176.0" layoutY="110.0" text="cust" />
+                  <ChoiceBox fx:id="choiceStatus" layoutX="522.0" layoutY="68.0" prefWidth="150.0" />
+                  <Text layoutX="567.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+                  <Button fx:id="saveStatus" layoutX="707.0" layoutY="68.0" mnemonicParsing="false" text="Save" />
+                  <Text layoutX="43.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID" />
+                  <Text layoutX="26.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" />
+                  <Text layoutX="30.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" />
+                  <ListView fx:id="productlistview" layoutX="-1.0" layoutY="320.0" prefHeight="208.0" prefWidth="800.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
          </center></BorderPane>

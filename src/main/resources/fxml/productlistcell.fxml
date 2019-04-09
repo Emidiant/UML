@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="60.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fx:id="imageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Label fx:id="productId" layoutX="258.0" layoutY="21.0" text="product Id" AnchorPane.leftAnchor="258.0" AnchorPane.topAnchor="21.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="type" layoutX="150.0" layoutY="22.0" text="type" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="575.5">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <Label fx:id="name" layoutX="42.0" layoutY="15.0" text="name" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="721.5" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="price" layoutX="385.0" layoutY="22.0" text="price" />
+      <Label fx:id="count" layoutX="484.0" layoutY="22.0" text="count" />
+    </children>
+</AnchorPane>
