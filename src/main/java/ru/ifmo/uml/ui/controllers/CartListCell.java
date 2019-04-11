@@ -51,6 +51,7 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer,Integer>>>
         listeners.remove(listener);
     }
     private void notifyListeners(int count){
+        //TODO Exception throws here
         for (Listener<Integer> listener : listeners){
             listener.notifyListener(count);
         }
