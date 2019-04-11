@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import ru.ifmo.uml.entity.Cart;
+import ru.ifmo.uml.ui.controllers.CartController;
 
 import java.io.IOException;
 
@@ -20,6 +22,8 @@ public class MainApp extends Application {
     private static Scene admin = null;
     private static Scene info = null;
     private static Scene cart = null;
+    private static Cart cartItem;
+    private static ProductRepository productRepository;
     private BorderPane mainLayout;
     private Stage prevStage;
 
@@ -30,16 +34,16 @@ public class MainApp extends Application {
         primaryStage = stage;
         primaryStage.getIcons().add(new Image("/image/239.png"));
         primaryStage.setTitle(" Start page");
-        //showMainPage();
+        showMainPage();
 
-        FXMLLoader loader = new FXMLLoader();
+        /*FXMLLoader loader = new FXMLLoader();
 
         Parent root = (Parent) loader.load(MainController.class.getResourceAsStream("/fxml/hellopage.fxml"));
         MainController mainController = loader.getController();
         mainController.setStage(primaryStage);
 
         Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(scene);*/
         primaryStage.show();
 
 
@@ -51,6 +55,8 @@ public class MainApp extends Application {
             Parent root = loader.load(MainController.class.getResourceAsStream("/fxml/hellopage.fxml"));
             MainController mainController = loader.getController();
             mainController.setStage(primaryStage);
+            mainController.setInit(cartItem,productRepository);
+            mainController.update();
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Store");
             primaryStage.show();
@@ -104,7 +110,7 @@ public class MainApp extends Application {
     }
 
     public static void showLoginPage() {
-        if (loaderLogin == null)
+        /*if (loaderLogin == null)
             loaderLogin = new FXMLLoader(MainApp.class.getResource("/fxml/login.fxml"));
         if (login == null) {
             try {
@@ -121,9 +127,10 @@ public class MainApp extends Application {
             loginController.setStage(primaryStage);
             login = new Scene(root);
         }
-        primaryStage.setScene(login);
-        //prevStage.close();
-        //stage.show();
+        primaryStage.setScene(login);*/
+        primaryStage.setTitle("Log In");
+        changeScene(loaderLogin,login,"/fxml/login.fxml");
+
     }
 
     public static void showCartPage() {
@@ -137,16 +144,40 @@ public class MainApp extends Application {
                 e.printStackTrace();
             }
 
-            primaryStage.setTitle(" Log In");
+            primaryStage.setTitle("Cart");
             Parent root = loaderCart.getRoot();
-            LoginController loginController = loaderCart.getController();
-            loginController.setStage(primaryStage);
+            CartController cartController = loaderCart.getController();
+            cartController.setInit(cartItem,productRepository);
             cart = new Scene(root);
         }
-        primaryStage.setScene(login);
+        CartController cartController = loaderCart.getController();
+        cartController.update();
+        primaryStage.setScene(cart);
+        //primaryStage.setTitle("Cart");
+        //changeScene(loaderCart,cart,"/fxml/cart.fxml");
     }
+    private static void changeScene(FXMLLoader loader, Scene scene, String url){
+        if (loader == null)
+            loader = new FXMLLoader(MainApp.class.getResource(url));
+        if (scene == null) {
+            try {
+                loader.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
 
+            Parent root = loader.getRoot();
+            //LoginController loginController = loader.getController();
+            //loginController.setStage(primaryStage);
+            scene = new Scene(root);
+        }
+        primaryStage.setScene(scene);
+    }
     public static void main(String[] args) {
+        cartItem = new Cart();
+        productRepository = new ProductRepository();
+        productRepository.load();
         launch(args);
     }
 }

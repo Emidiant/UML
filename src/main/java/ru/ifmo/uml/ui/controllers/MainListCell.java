@@ -70,7 +70,7 @@ public class MainListCell extends ListCell<Product> {
     @FXML
     public void btnAddToCartPressed(){
         if (cart != null){
-            cart.addProduct(item.getArticle());
+            cart.addProduct(item.getProductId().get(0));
             System.out.println(cart.getProducts().toString());
         }
         else

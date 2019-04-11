@@ -33,18 +33,15 @@ public class MainController {
 
     @FXML
     private ListView<Product> listview;
-
+    private ProductRepository productRepository;
     private Cart cart;
     ObservableList<Product> products = FXCollections.observableArrayList();
 
     Stage prevStage;
     @FXML
     void initialize() {
-        cart = new Cart();
-        ProductRepository productRepository = new ProductRepository();
-        productRepository.load();
-        products.clear();
-        products.addAll(productRepository.getProducts());
+
+
         listview.setCellFactory(param -> new MainListCell(){
             @Override
             protected void updateItem(Product item, boolean empty){
@@ -52,10 +49,18 @@ public class MainController {
                 this.setCart(cart);
             }
         });
-        listview.setItems(products);
+
         poweroffButton.setOnMouseClicked(e -> System.exit(0));
     }
-
+    public void setInit(Cart cart, ProductRepository productRepository){
+        this.cart = cart;
+        this.productRepository = productRepository;
+    }
+    public void update(){
+        products.clear();
+        products.addAll(productRepository.getProducts());
+        listview.setItems(products);
+    }
     public void setStage(Stage stage){
         this.prevStage = stage;
     }
@@ -69,6 +74,7 @@ public class MainController {
     }
 
     public void btnCartClicked(ActionEvent actionEvent) {
+        MainApp.showCartPage();
     }
 }
 
