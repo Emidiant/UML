@@ -25,41 +25,52 @@ public class CartController {
     private Double total;
     private Cart cart;
     private ProductRepository productRepository;
+
     public void setInit(Cart cart, ProductRepository productRepository) {
         this.cart = cart;
         this.productRepository = productRepository;
     }
+
     @FXML
-    void initialize(){
-        listviewProducts.setCellFactory(param -> new CartListCell(){
+    void initialize() {
+        listviewProducts.setCellFactory(param -> new CartListCell() {
             @Override
-            protected void updateItem(Pair<Product, Pair<Integer,Integer>> item, boolean empty){
-                super.updateItem(item,empty);
+            protected void updateItem(Pair<Product, Pair<Integer, Integer>> item, boolean empty) {
+                super.updateItem(item, empty);
                 super.addListener(obj -> {
                     if (item != null) {
-                        cart.changeAmount(item.getValue().getKey(), obj);
-                        updateTotal();
+                        if (obj != 0) {
+                            cart.changeAmount(item.getValue().getKey(), obj);
+                            updateTotal();
+                        }
+                        else {
+                            //TODO Fix exception
+                            cart.deleteProduct(item.getValue().getKey());
+                            update();
+                        }
                     }
                 });
             }
         });
     }
-    public void updateTotal(){
+
+    public void updateTotal() {
         total = 0.0;
-        Map<Integer,Integer> products = cart.getProducts();
-        for (Integer productId : products.keySet()){
+        Map<Integer, Integer> products = cart.getProducts();
+        for (Integer productId : products.keySet()) {
             Product product = productRepository.getProductByProductId(productId);
             total += product.getPrice() * products.get(productId);
         }
         txtTotal.setText(Double.toString(total));
     }
-    public void update(){
+
+    public void update() {
         total = 0.0;
-        List<Pair<Product, Pair<Integer,Integer>>> items = new ArrayList<>();
-        Map<Integer,Integer> products = cart.getProducts();
-        for (Integer productId : products.keySet()){
+        List<Pair<Product, Pair<Integer, Integer>>> items = new ArrayList<>();
+        Map<Integer, Integer> products = cart.getProducts();
+        for (Integer productId : products.keySet()) {
             Product product = productRepository.getProductByProductId(productId);
-            items.add(new Pair<>(product,new Pair<>(productId,products.get(productId))));
+            items.add(new Pair<>(product, new Pair<>(productId, products.get(productId))));
             total += product.getPrice() * products.get(productId);
         }
         txtTotal.setText(Double.toString(total));
@@ -73,7 +84,5 @@ public class CartController {
     public void btnBackClicked(ActionEvent actionEvent) {
         MainApp.showMainPage();
     }
-    public void btnDeleteClicked(ActionEvent actionEvent){
 
-    }
 }

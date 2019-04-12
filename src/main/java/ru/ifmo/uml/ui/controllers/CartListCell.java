@@ -2,6 +2,7 @@ package ru.ifmo.uml.ui.controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -102,6 +103,9 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
                 imageView.setImage(null);
             setGraphic(anchorPane);
         }
+    }
+    public void btnDeleteClicked(ActionEvent actionEvent){
+        notifyListeners(0);
     }
 
 }

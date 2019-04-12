@@ -31,6 +31,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnDeleteClicked" layoutX="583.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="X" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+      <Button onAction="#btnDeleteClicked" layoutX="583.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="X" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
    </children>
 </AnchorPane>
