@@ -17,9 +17,10 @@ import ru.ifmo.uml.utils.Listener;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
-public class CartListCell extends ListCell<Pair<Product, Pair<Integer,Integer>>> {
+public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>> {
     @FXML
     public Label txtName;
     @FXML
@@ -38,43 +39,44 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer,Integer>>>
     public ImageView imageView;
     @FXML
     public AnchorPane anchorPane;
-    private Pair<Product, Pair<Integer,Integer>> item;
+    private Pair<Product, Pair<Integer, Integer>> item;
     private Product product;
-    private Pair<Integer,Integer> productId;
+    private Pair<Integer, Integer> productId;
     private List<Listener<Integer>> listeners;
     private FXMLLoader fxmlLoader;
-    public void addListener(Listener<Integer> listener){
-         if (listeners == null) listeners = new ArrayList<>();
+
+    public void addListener(Listener<Integer> listener) {
+        if (listeners == null) listeners = new ArrayList<>();
         listeners.add(listener);
     }
-    public void deleteListener(Listener listener){
+
+    public void deleteListener(Listener listener) {
         listeners.remove(listener);
     }
-    private void notifyListeners(int count){
-        //TODO Exception throws here
-        for (Listener<Integer> listener : listeners){
+
+    private void notifyListeners(int count) {
+
+        for (Listener<Integer> listener : listeners) {
             listener.notifyListener(count);
         }
-    }
-    @FXML
-    void initialize(){
 
     }
+
     @Override
-    protected void updateItem(Pair<Product, Pair<Integer,Integer>> item, boolean empty){
+    protected void updateItem(Pair<Product, Pair<Integer, Integer>> item, boolean empty) {
         super.updateItem(item, empty);
 
-        if (empty||item == null){
+        if (empty || item == null) {
             setText(null);
             setGraphic(null);
         } else {
             this.item = item;
             this.productId = item.getValue();
             this.product = item.getKey();
-            if (fxmlLoader == null){
+            if (fxmlLoader == null) {
                 fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/cartlistcell.fxml"));
                 fxmlLoader.setController(this);
-                try{
+                try {
                     fxmlLoader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -88,16 +90,15 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer,Integer>>>
             txtSize.setText(Integer.toString(product.getSizeIds().get(id)));
             //TODO get size, color
             spinner.setValueFactory(
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0,10,productId.getValue()));
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10, productId.getValue()));
             spinner.valueProperty().addListener((ChangeListener<Integer>)
                     (observable, oldValue, newValue) ->
                             txtTotalPrice.setText(Double.toString(product.getPrice() * newValue)));
             spinner.valueProperty().addListener((ChangeListener<Integer>) (observable, oldValue, newValue) ->
                     notifyListeners(newValue));
-            if (product.getImages().size() != 0){
+            if (product.getImages().size() != 0) {
                 imageView.setImage(product.getImages().get(id));
-            }
-            else
+            } else
                 imageView.setImage(null);
             setGraphic(anchorPane);
         }

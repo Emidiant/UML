@@ -38,11 +38,20 @@ public class CartController {
                 super.addListener(obj -> {
                     if (item != null) {
                         cart.changeAmount(item.getValue().getKey(), obj);
-                        update();
+                        updateTotal();
                     }
                 });
             }
         });
+    }
+    public void updateTotal(){
+        total = 0.0;
+        Map<Integer,Integer> products = cart.getProducts();
+        for (Integer productId : products.keySet()){
+            Product product = productRepository.getProductByProductId(productId);
+            total += product.getPrice() * products.get(productId);
+        }
+        txtTotal.setText(Double.toString(total));
     }
     public void update(){
         total = 0.0;
@@ -63,5 +72,8 @@ public class CartController {
 
     public void btnBackClicked(ActionEvent actionEvent) {
         MainApp.showMainPage();
+    }
+    public void btnDeleteClicked(ActionEvent actionEvent){
+
     }
 }
