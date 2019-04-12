@@ -1,7 +1,6 @@
 package ru.ifmo.uml.ui.controllers;
 
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +12,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.ui.ProductRepository;
 import ru.ifmo.uml.utils.Listener;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>> {
@@ -42,7 +39,7 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
     public AnchorPane anchorPane;
     private Pair<Product, Pair<Integer, Integer>> item;
     private Product product;
-    private Pair<Integer, Integer> productId;
+    private Pair<Integer, Integer> pair_productId_count;
     private List<Listener<Integer>> listeners;
     private FXMLLoader fxmlLoader;
 
@@ -60,7 +57,6 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
         for (Listener<Integer> listener : listeners) {
             listener.notifyListener(count);
         }
-
     }
 
     @Override
@@ -72,7 +68,7 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
             setGraphic(null);
         } else {
             this.item = item;
-            this.productId = item.getValue();
+            this.pair_productId_count = item.getValue();
             this.product = item.getKey();
             if (fxmlLoader == null) {
                 fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/cartlistcell.fxml"));
@@ -83,15 +79,16 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
                     e.printStackTrace();
                 }
             }
-            int id = product.getProductId().indexOf(productId.getKey());
+            int id = product.getProductId().indexOf(pair_productId_count.getKey());
             txtName.setText(product.getName());
             txtDescription.setText(product.getSpecification());
             txtPrice.setText(Double.toString(product.getPrice()));
+            txtTotalPrice.setText(Double.toString(product.getPrice() * pair_productId_count.getValue()));
             txtColor.setText(Integer.toString(product.getColorIds().get(id)));
             txtSize.setText(Integer.toString(product.getSizeIds().get(id)));
             //TODO get size, color
             spinner.setValueFactory(
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10, productId.getValue()));
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10, pair_productId_count.getValue()));
             spinner.valueProperty().addListener((ChangeListener<Integer>)
                     (observable, oldValue, newValue) ->
                             txtTotalPrice.setText(Double.toString(product.getPrice() * newValue)));
