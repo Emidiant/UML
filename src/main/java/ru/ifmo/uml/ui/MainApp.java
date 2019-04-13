@@ -18,10 +18,12 @@ public class MainApp extends Application {
     private static FXMLLoader loaderCoord = null;
     private static FXMLLoader loaderInfo = null;
     private static FXMLLoader loaderCart = null;
+    private static FXMLLoader loaderStatus = null;
     private static Scene login = null;
     private static Scene admin = null;
     private static Scene info = null;
     private static Scene cart = null;
+    private static Scene status = null;
     private static Cart cartItem;
     private static ProductRepository productRepository;
     private BorderPane mainLayout;
@@ -173,6 +175,10 @@ public class MainApp extends Application {
             scene = new Scene(root);
         }
         primaryStage.setScene(scene);
+    }
+    public static void showOrderStatus(){
+        changeScene(loaderStatus,status,"/fxml/status.fxml");
+
     }
     public static void main(String[] args) {
         cartItem = new Cart();

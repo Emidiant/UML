@@ -76,5 +76,9 @@ public class MainController {
     public void btnCartClicked(ActionEvent actionEvent) {
         MainApp.showCartPage();
     }
+
+    public void btnCheckOrderClicked(ActionEvent actionEvent) {
+        MainApp.showOrderStatus();
+    }
 }
 

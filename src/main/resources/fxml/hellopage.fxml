@@ -20,7 +20,7 @@
                </BorderPane.margin></Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" onAction="#btnCartClicked" text="Cart" style="-fx-background-color: #894E8D; -fx-background-radius: 10;"  textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#btnCartClicked" style="-fx-background-color: #894E8D; -fx-background-radius: 10;" text="Cart" textFill="WHITE" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </BorderPane.margin>
@@ -29,6 +29,12 @@
                </font>
             </Button>
          </right>
+         <center>
+            <Button mnemonicParsing="false" onAction="#btnCheckOrderClicked" style="-fx-background-color: #894E8D; -fx-background-radius: 10;" text="Check order" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+         </center>
       </BorderPane>
       <BorderPane layoutX="300.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <bottom>
