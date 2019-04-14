@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
 import ru.ifmo.uml.dal.dto.Administrator;
@@ -45,6 +46,19 @@ public class LoginController {
                         comboBox.setDisable(false);
                     }
                 });
+
+        btnBack.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnBackClicked();
+            }
+        });
+
+        btnLogin.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnLoginClicked(new ActionEvent());
+            }
+        });
+
 
         //временнo
         //COORDINATOR
@@ -89,7 +103,7 @@ public class LoginController {
 
             }
         } catch (NullPointerException e) {
-            incorrectData.setText("Incorect name or password");
+            incorrectData.setText("Incorrect name or password");
         }
     }
 }
