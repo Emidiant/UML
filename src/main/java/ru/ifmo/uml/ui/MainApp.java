@@ -16,7 +16,9 @@ public class MainApp extends Application {
     private static Stage primaryStage;
     private static FXMLLoader loaderLogin = null;
     private static FXMLLoader loaderCoord = null;
-    private static FXMLLoader loaderInfo = null;
+    private static FXMLLoader loaderLogist = null;
+    private static FXMLLoader loaderInfoOrder = null;
+    private static FXMLLoader loaderInfoDelivery = null;
     private static FXMLLoader loaderCart = null;
     private static FXMLLoader loaderStatus = null;
     private static Scene login = null;
@@ -28,6 +30,8 @@ public class MainApp extends Application {
     private static ProductRepository productRepository;
     private BorderPane mainLayout;
     private Stage prevStage;
+
+    private static Integer delOrderById = null;
 
 
     @Override
@@ -57,7 +61,7 @@ public class MainApp extends Application {
             Parent root = loader.load(MainController.class.getResourceAsStream("/fxml/hellopage.fxml"));
             MainController mainController = loader.getController();
             mainController.setStage(primaryStage);
-            mainController.setInit(cartItem,productRepository);
+            mainController.setInit(cartItem, productRepository);
             mainController.update();
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Store");
@@ -67,9 +71,25 @@ public class MainApp extends Application {
         }
     }
 
+    public static void clearInfo() {
+        info = null;
+        loaderInfoDelivery = null;
+    }
+
+    public static void clearAll() {
+        loaderCoord = null;
+        loaderInfoOrder = null;
+        loaderLogist = null;
+        loaderInfoDelivery = null;
+        admin = null;
+        info = null;
+    }
+
     public static void showCoordPage() {
-        if (loaderCoord == null)
+        if (loaderCoord == null) {
             loaderCoord = new FXMLLoader(MainApp.class.getResource("/fxml/coordpage.fxml"));
+        }
+        primaryStage.setTitle("Сoordinator");
         if (admin == null) {
             try {
                 loaderCoord.load();
@@ -79,7 +99,6 @@ public class MainApp extends Application {
             }
 
             //stage.getIcons().add(new Image("/image/239.png"));
-            primaryStage.setTitle("Сoordinator");
             Parent root = loaderCoord.getRoot();
             CoordPageController coordPageController = loaderCoord.getController();
             coordPageController.setStage(primaryStage);
@@ -88,26 +107,64 @@ public class MainApp extends Application {
         primaryStage.setScene(admin);
     }
 
-    public static void showInfoOrderPage(Integer id) {
-        if (loaderInfo == null)
-            loaderInfo = new FXMLLoader(MainApp.class.getResource("/fxml/infoorderpage.fxml"));
-        if (info == null) {
+    public static void showLogistPage() {
+        if (loaderLogist == null)
+            loaderLogist = new FXMLLoader(MainApp.class.getResource("/fxml/logistpage.fxml"));
+        primaryStage.setTitle("Logistician");
+        if (admin == null) {
             try {
-                loaderInfo.load();
+                loaderLogist.load();
             } catch (IOException e) {
                 System.out.println("Error");
                 e.printStackTrace();
             }
 
-            primaryStage.setTitle("Information");
-            Parent root = loaderInfo.getRoot();
-            InfoOrderController infoOrderController = loaderInfo.getController();
-            infoOrderController.setId(id);
-            infoOrderController.setStage(primaryStage);
+            Parent root = loaderLogist.getRoot();
+            admin = new Scene(root);
+        }
+        primaryStage.setScene(admin);
+    }
 
+    public static void showInfoOrderPage(Integer id) {
+        if (loaderInfoOrder == null)
+            loaderInfoOrder = new FXMLLoader(MainApp.class.getResource("/fxml/infoorderpage.fxml"));
+        primaryStage.setTitle("Information");
+        if (info == null) {
+            //info = null;
+            try {
+                loaderInfoOrder.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
 
+            Parent root = loaderInfoOrder.getRoot();
             info = new Scene(root);
         }
+        InfoOrderController infoOrderController = loaderInfoOrder.getController();
+        infoOrderController.setId(id);
+        infoOrderController.setStage(primaryStage);
+        primaryStage.setScene(info);
+    }
+
+    public static void showInfoDeliveryPage(Integer id) {
+        if (loaderInfoDelivery == null)
+            loaderInfoDelivery = new FXMLLoader(MainApp.class.getResource("/fxml/infodeliverypage.fxml"));
+        primaryStage.setTitle("Information");
+        if (info == null) {
+            //info = null;
+            try {
+                loaderInfoDelivery.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            Parent root = loaderInfoDelivery.getRoot();
+            info = new Scene(root);
+        }
+        InfoDeliveryController infoDeliveryController = loaderInfoDelivery.getController();
+        infoDeliveryController.setId(id);
         primaryStage.setScene(info);
     }
 
@@ -131,7 +188,7 @@ public class MainApp extends Application {
         }
         primaryStage.setScene(login);*/
         primaryStage.setTitle("Log In");
-        changeScene(loaderLogin,login,"/fxml/login.fxml");
+        changeScene(loaderLogin, login, "/fxml/login.fxml");
 
     }
 
@@ -149,7 +206,7 @@ public class MainApp extends Application {
             primaryStage.setTitle("Cart");
             Parent root = loaderCart.getRoot();
             CartController cartController = loaderCart.getController();
-            cartController.setInit(cartItem,productRepository);
+            cartController.setInit(cartItem, productRepository);
             cart = new Scene(root);
         }
         CartController cartController = loaderCart.getController();
@@ -158,7 +215,8 @@ public class MainApp extends Application {
         //primaryStage.setTitle("Cart");
         //changeScene(loaderCart,cart,"/fxml/cart.fxml");
     }
-    private static void changeScene(FXMLLoader loader, Scene scene, String url){
+
+    private static void changeScene(FXMLLoader loader, Scene scene, String url) {
         if (loader == null)
             loader = new FXMLLoader(MainApp.class.getResource(url));
         if (scene == null) {
@@ -176,10 +234,12 @@ public class MainApp extends Application {
         }
         primaryStage.setScene(scene);
     }
-    public static void showOrderStatus(){
-        changeScene(loaderStatus,status,"/fxml/status.fxml");
+
+    public static void showOrderStatus() {
+        changeScene(loaderStatus, status, "/fxml/status.fxml");
 
     }
+
     public static void main(String[] args) {
         cartItem = new Cart();
         productRepository = new ProductRepository();

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.LogistPageController">
+    <children>
+        <TabPane prefHeight="575.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab fx:id="orders" text="Orders">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <center>
+                                        <ListView fx:id="orderslistview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                            <BorderPane.margin>
+                                                <Insets bottom="100.0" />
+                                            </BorderPane.margin></ListView>
+                                    </center>
+                                    <top>
+                                        <AnchorPane prefHeight="43.0" prefWidth="819.0" BorderPane.alignment="CENTER">
+                                            <children>
+                                                <GridPane layoutY="6.0" prefHeight="30.0" prefWidth="800.0" style="-fx-background-color: e4e4e4;">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <TextField fx:id="productName1" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Customer ID " GridPane.columnIndex="1" />
+                                                        <TextField fx:id="productName2" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Order ID" />
+                                                        <TextField fx:id="productName" alignment="CENTER_RIGHT" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Delivery Type" GridPane.columnIndex="2" />
+                                                        <TextField fx:id="productName3" alignment="CENTER" disable="true" layoutX="410.0" layoutY="12.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" />
+                                                        <TextField fx:id="productName4" alignment="CENTER" disable="true" promptText="ProductName" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Delivery status" GridPane.columnIndex="3" />
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </top>
+                                </BorderPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="btnLogout" layoutX="705.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-radius: 10;" text="Log Out" />
+    </children>
+</AnchorPane>

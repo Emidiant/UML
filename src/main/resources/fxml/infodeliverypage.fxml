@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.InfoDeliveryController">
+    <children>
+        <GridPane prefHeight="600.0" prefWidth="800.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="94.5999870300293" minHeight="10.0" prefHeight="71.60000915527344" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="456.1999931335449" minHeight="0.0" prefHeight="241.80002441406248" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="524.7999938964844" minHeight="10.0" prefHeight="49.79997558593749" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="397.19999999999993" minHeight="10.0" prefHeight="220.19998474121093" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="374.0000213623047" minHeight="10.0" prefHeight="71.60002441406243" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ListView fx:id="productlistview" prefHeight="226.0" prefWidth="800.0" style="-fx-alignment: CENTER-RIGHT;" GridPane.rowIndex="3" />
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Information about delivery" textAlignment="CENTER" wrappingWidth="401.1180114746094" GridPane.columnIndex="1">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Text>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="36.0" minWidth="36.0" prefWidth="36.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.20001220703125" minWidth="10.0" prefWidth="79.20000610351562" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="87.0" prefWidth="87.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="backButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" style="-fx-background-radius: 10;" text="Back" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+                  <GridPane GridPane.columnIndex="2">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="76.7999755859375" prefWidth="76.7999755859375" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.20001220703125" minWidth="10.0" prefWidth="87.40002441406249" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="36.0" minWidth="36.0" prefWidth="36.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="btnLogout" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" style="-fx-background-radius: 10;" text="Log Out" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                    </children>
+                </GridPane>
+                <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="60.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.20001602172852" minWidth="10.0" prefWidth="129.8000061035156" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.3999938964844" minWidth="10.0" prefWidth="166.59999389648436" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.3999938964844" minWidth="10.0" prefWidth="60.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="21.20000305175781" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="orderID" prefHeight="40.0" prefWidth="163.0" text="orderid" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <Label fx:id="deliveryType" prefHeight="38.0" prefWidth="163.0" text="deliverytype" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                <Label fx:id="customerName" prefHeight="42.0" prefWidth="163.0" text="customername" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                <Label fx:id="address" prefHeight="59.0" prefWidth="163.0" text="address" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                            </children>
+                        </GridPane>
+                        <GridPane GridPane.columnIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="60.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.20001602172852" minWidth="10.0" prefWidth="129.8000061035156" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.3999938964844" minWidth="10.0" prefWidth="204.00004882812502" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.3999938964844" minWidth="10.0" prefWidth="15.199951171875" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="21.20000305175781" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="email" prefHeight="35.0" prefWidth="207.0" text="email" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Status" wrappingWidth="121.62701797485352" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <Label fx:id="phoneNumber" prefHeight="38.0" prefWidth="163.0" text="phonenumber" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                <ComboBox fx:id="statusBox" prefHeight="26.0" prefWidth="170.0" promptText="Status" style="-fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </ComboBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="800.0" style="-fx-background-color: d4d4d4;" GridPane.rowIndex="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="productName" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Product Name" />
+                  <TextField fx:id="type" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Type" GridPane.columnIndex="1" />
+                  <TextField fx:id="productId" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Product ID" GridPane.columnIndex="2" />
+                  <TextField fx:id="price" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Price" GridPane.columnIndex="3" />
+                  <TextField fx:id="size" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Size" GridPane.columnIndex="4" />
+                  <TextField fx:id="color" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Color" GridPane.columnIndex="5" />
+                  <TextField fx:id="count" alignment="CENTER" disable="true" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Count" GridPane.columnIndex="6" />
+               </children>
+            </GridPane>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
