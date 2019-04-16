@@ -27,7 +27,7 @@ import java.util.List;
 public class CoordPageController {
 
     @FXML
-    private Button backButton;
+    private Button btnLogout;
 
     @FXML
     private Button addProduct;
@@ -69,8 +69,9 @@ public class CoordPageController {
             createTabStockView();
         });
 
-        backButton.setOnAction(event -> {
-            MainApp.showLoginPage();
+        btnLogout.setOnAction(event -> {
+            MainApp.clearAll();
+            MainApp.showMainPage();
         });
 
         addProduct.setOnAction(event -> {
