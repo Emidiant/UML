@@ -34,9 +34,6 @@ public class InfoOrderController {
     private Label deliveryType;
 
     @FXML
-    private Label customerId;
-
-    @FXML
     private Button backButton;
 
 
@@ -95,23 +92,21 @@ public class InfoOrderController {
 
         deliveryType.setText(order.getDeliveryType());
         orderId.setText(Integer.toString(order.getOrderId()));
-        customerId.setText(Integer.toString(order.getCustomerId()));
 
-        statusBox.getItems().addAll("not confirmed", "confirmed", "transferred to delivery service", "closed", "canceled");
+
         statusBox.setValue(order.getStatus());
+        if (order.getStatus().equals("not confirmed") || order.getStatus().equals("confirmed")){
+            statusBox.getItems().addAll("not confirmed", "confirmed", "canceled");
 
-        /*saveStatus.setOnAction(e -> {
-            OrderImpl orderImpl1 = new OrderImpl();
-            order.setStatus(statusBox.getValue());
-            orderImpl1.update(order);
-            //createProductList(productList);
-        });*/
-        statusBox.valueProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    order.setStatus(newValue);
-                    orderImpl.update(order);
-                    MainApp.clearAll();
-                });
+            statusBox.valueProperty().addListener(
+                    (observable, oldValue, newValue) -> {
+                        order.setStatus(newValue);
+                        orderImpl.update(order);
+                        MainApp.clearAll();
+                    });
+        }
+
+
     }
 
     public void createProductList(ObservableList productList) {

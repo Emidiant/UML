@@ -79,6 +79,6 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="btnLogout" mnemonicParsing="false" text="Log Out" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0" />
+      <Button fx:id="btnLogout" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-radius: 10;" text="Log Out" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0" />
    </children>
 </AnchorPane>
