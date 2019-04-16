@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -17,22 +21,39 @@
                <children>
                   <Label fx:id="orderId" layoutX="177.0" layoutY="35.0" text="orId" />
                   <Label fx:id="deliveryType" layoutX="175.0" layoutY="73.0" text="deliv" />
-                  <Label fx:id="customerId" layoutX="176.0" layoutY="110.0" text="cust" />
-                  <ChoiceBox fx:id="choiceStatus" layoutX="522.0" layoutY="68.0" prefWidth="150.0" />
                   <Text layoutX="567.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-                  <Button fx:id="saveStatus" layoutX="707.0" layoutY="68.0" mnemonicParsing="false" text="Save" />
                   <Text layoutX="43.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID" />
                   <Text layoutX="26.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Type" />
-                  <Text layoutX="30.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" />
                   <ListView fx:id="productlistview" layoutX="-1.0" layoutY="320.0" prefHeight="208.0" prefWidth="800.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Text layoutX="540.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество товара на складе" textAlignment="CENTER" wrappingWidth="114.71533203125" />
-                  <Text layoutX="666.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество товара в заказе" textAlignment="CENTER" wrappingWidth="130.87646484375" />
-                  <Text layoutX="13.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название товара" />
-                  <Text layoutX="163.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип" />
-                  <Text layoutX="236.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID товара" />
-                  <Text layoutX="328.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цена за шт" />
-                  <Text layoutX="418.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Размер" />
-                  <Text layoutX="494.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цвет" />
+                  <ComboBox fx:id="statusBox" layoutX="510.0" layoutY="68.0" prefHeight="27.0" prefWidth="168.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+                  <GridPane layoutY="207.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="800.0" style="-fx-background-color: d4d4d4;">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="-Infinity" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="-Infinity" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextField fx:id="name" alignment="CENTER" disable="true" prefHeight="29.0" prefWidth="145.0" promptText="productName" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Name" />
+                        <TextField fx:id="type" alignment="CENTER" disable="true" promptText="type" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Type" GridPane.columnIndex="1" />
+                        <TextField fx:id="productId" alignment="CENTER" disable="true" prefHeight="29.0" prefWidth="119.0" promptText="productID" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="ID" GridPane.columnIndex="2" />
+                        <TextField fx:id="price" alignment="CENTER" disable="true" promptText="price" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Price" GridPane.columnIndex="3" />
+                        <TextField fx:id="sizeId" alignment="CENTER" disable="true" promptText="size" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Size" GridPane.columnIndex="4" />
+                        <TextField fx:id="colorId" alignment="CENTER" disable="true" promptText="color" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Color" GridPane.columnIndex="5" />
+                        <TextField fx:id="count" alignment="CENTER" disable="true" promptText="count" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="Count" GridPane.columnIndex="6" />
+                        <TextField fx:id="countCust" alignment="CENTER" disable="true" promptText="custCount" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="CC" GridPane.columnIndex="7" />
+                        <TextField fx:id="countSup" alignment="CENTER" disable="true" promptText="supplyCount" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" text="SC" GridPane.columnIndex="8" />
+                     </children>
+                  </GridPane>
                </children>
             </AnchorPane>
          </center></BorderPane>
@@ -41,6 +62,6 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="backButton" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="backButton" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Back" />
     </children>
 </AnchorPane>

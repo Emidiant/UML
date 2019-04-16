@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import ru.ifmo.uml.dal.dto.Color;
 import ru.ifmo.uml.dal.dto.Product;
@@ -28,28 +29,31 @@ public class ProductListCell extends ListCell<Product> {
     private AnchorPane anchorPane;
 
     @FXML
-    private Label productId;
+    private TextField productId;
 
     @FXML
-    private Label name;
+    private TextField name;
 
     @FXML
-    private Label type;
+    private TextField type;
 
     @FXML
-    private Label price;
+    private TextField price;
 
     @FXML
-    private Label count;
+    private TextField count;
 
     @FXML
-    private Label sizeId;
+    private TextField sizeId;
 
     @FXML
-    private Label colorId;
+    private TextField colorId;
 
     @FXML
-    private Label countCust;
+    private TextField countCust;
+
+    @FXML
+    private TextField countSup;
 
     @FXML
     private Button importButton;
@@ -100,10 +104,15 @@ public class ProductListCell extends ListCell<Product> {
 
             importButton.setOnAction(event -> {
                 ProductImpl productImpl = new ProductImpl();
-                item.setCount(item.getCount() + 1);
+                int prevCount = item.getCount();
+                try {
+                    item.setCount(prevCount + Integer.parseInt(countSup.getText()));
+                }catch (Exception e){
+                    System.out.println("not integer, aaaa");
+                }
                 productImpl.update(item);
-                System.out.println(item.getCount());
                 count.setText(Integer.toString(item.getCount()));
+                countSup.clear();
             });
 
 
