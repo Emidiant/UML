@@ -69,8 +69,6 @@ public class MainController {
     @FXML
     void logIn(ActionEvent event) {
         MainApp.showLoginPage();
-
-
     }
 
     public void btnCartClicked(ActionEvent actionEvent) {
