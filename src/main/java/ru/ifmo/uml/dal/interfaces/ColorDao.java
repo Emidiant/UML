@@ -5,4 +5,5 @@ import ru.ifmo.uml.dal.dto.Color;
 
 public interface ColorDao extends Dao<Color, Integer> {
     //Other methods not from Dao class
+    Integer getByName(String colorName);
 }

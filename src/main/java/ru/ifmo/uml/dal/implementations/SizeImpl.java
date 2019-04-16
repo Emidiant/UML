@@ -88,4 +88,23 @@ public class SizeImpl implements SizeDao {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public Integer getByName(String sizeName) {
+        String query = "SELECT * FROM SIZE WHERE SIZENAME = ?";
+        Size size = null;
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, sizeName);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                size = new Size();
+                size.setSizeId(rs.getInt("SIZEID"));
+                size.setSizeName(rs.getString("SIZENAME"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return size.getSizeId();
+    }
 }

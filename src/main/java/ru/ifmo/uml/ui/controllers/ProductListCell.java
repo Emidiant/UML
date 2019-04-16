@@ -13,6 +13,8 @@ import ru.ifmo.uml.dal.implementations.ColorImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.SizeImpl;
+import ru.ifmo.uml.ui.InfoOrderController;
+import ru.ifmo.uml.ui.MainApp;
 
 
 import java.io.IOException;
@@ -101,6 +103,7 @@ public class ProductListCell extends ListCell<Product> {
                 item.setCount(item.getCount() + 1);
                 productImpl.update(item);
                 System.out.println(item.getCount());
+                count.setText(Integer.toString(item.getCount()));
             });
 
 

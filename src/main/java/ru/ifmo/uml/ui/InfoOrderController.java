@@ -77,6 +77,8 @@ public class InfoOrderController {
     }
 
     public void createInfo(Integer id) {
+        productList.clear();
+
         OrderImpl orderImpl = new OrderImpl();
         Order order = orderImpl.getById(id);
         ProductImpl productImpl = new ProductImpl();
@@ -105,6 +107,7 @@ public class InfoOrderController {
             OrderImpl orderImpl1 = new OrderImpl();
             order.setStatus(choiceStatus.getValue());
             orderImpl1.update(order);
+            //createProductList(productList);
         });
     }
 

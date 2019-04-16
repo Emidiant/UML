@@ -74,6 +74,7 @@ public class MainApp extends Application {
     public static void clearInfo() {
         info = null;
         loaderInfoDelivery = null;
+
     }
 
     public static void clearAll() {
@@ -169,26 +170,15 @@ public class MainApp extends Application {
     }
 
     public static void showLoginPage() {
-        /*if (loaderLogin == null)
-            loaderLogin = new FXMLLoader(MainApp.class.getResource("/fxml/login.fxml"));
-        if (login == null) {
-            try {
-                loaderLogin.load();
-            } catch (IOException e) {
-                System.out.println("Error");
-                e.printStackTrace();
-            }
-
-            //stage.getIcons().add(new Image("/image/239.png"));
-            primaryStage.setTitle(" Log In");
-            Parent root = loaderLogin.getRoot();
-            LoginController loginController = loaderLogin.getController();
-            loginController.setStage(primaryStage);
-            login = new Scene(root);
-        }
-        primaryStage.setScene(login);*/
         primaryStage.setTitle("Log In");
         changeScene(loaderLogin, login, "/fxml/login.fxml");
+
+    }
+
+    public static void showAddProduct() {
+
+        primaryStage.setTitle("Add Product");
+        changeScene(loaderLogin,login,"/fxml/addproduct.fxml");
 
     }
 

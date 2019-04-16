@@ -19,9 +19,9 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <center>
-                              <ListView fx:id="orderslistview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                              <ListView fx:id="orderslistview" prefHeight="421.0" prefWidth="819.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
-                                    <Insets bottom="100.0" />
+                                    <Insets />
                                  </BorderPane.margin></ListView>
                            </center>
                            <top>
@@ -34,6 +34,24 @@
                                  </children>
                               </AnchorPane>
                            </top>
+                           <bottom>
+                              <BorderPane prefHeight="197.0" prefWidth="819.0" BorderPane.alignment="CENTER">
+                                 <right>
+                                    <Button fx:id="backButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Back" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets right="25.0" top="150.0" />
+                                       </BorderPane.margin>
+                                    </Button>
+                                 </right>
+                                 <left>
+                                    <Button fx:id="addProduct" mnemonicParsing="false" text="Add Product " BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets left="5.0" top="150.0" />
+                                       </BorderPane.margin>
+                                    </Button>
+                                 </left>
+                              </BorderPane>
+                           </bottom>
                         </BorderPane>
                      </children>
                   </AnchorPane>

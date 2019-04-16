@@ -89,4 +89,23 @@ public class ColorImpl implements ColorDao {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public Integer getByName(String colorName) {
+        String query = "SELECT * FROM COLOR WHERE COLORNAME = ?";
+        Color color = null;
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, colorName);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                color = new Color();
+                color.setColorId(rs.getInt("COLORID"));
+                color.setColorName(rs.getString("COLORNAME"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return color.getColorId();
+    }
 }

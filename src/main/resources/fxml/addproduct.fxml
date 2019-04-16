@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.AddProductController">
+    <children>
+        <BorderPane layoutX="130.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+                <GridPane style="-fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="403.0" minHeight="10.0" prefHeight="398.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <VBox prefHeight="398.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                <TextField fx:id="txtProductName" promptText="Product Name" style="-fx-background-radius: 10;">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                        <TextField fx:id="txtType" promptText="Type" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ComboBox fx:id="colorBox" opacity="0.6" prefHeight="29.0" prefWidth="302.0" promptText="Color" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 10; -fx-background-radius: 10;">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="sizeBox" opacity="0.6" prefHeight="27.0" prefWidth="268.0" promptText="Size" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 10; -fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </ComboBox>
+                        <TextField fx:id="txtPrice" promptText="Price" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="txtArticle" prefHeight="27.0" prefWidth="121.0" promptText="Article" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox prefHeight="44.0" prefWidth="267.0">
+                           <children>
+                              <ComboBox fx:id="countBox" opacity="0.6" prefHeight="29.0" prefWidth="126.0" promptText="Count" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 10; -fx-background-radius: 10;">
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </ComboBox>
+                              <TextField fx:id="txtImage" prefHeight="29.0" prefWidth="136.0" promptText="IMG" style="-fx-background-radius: 10;">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="txtSpecification" prefHeight="91.0" prefWidth="267.0" promptText="Specification" style="-fx-background-radius: 10;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label fx:id="txtWarning" textFill="RED">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                            </children>
+                        </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                                    <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveClicked" style="-fx-background-radius: 10;" text="Save" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="100.0" top="50.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                                    <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackClicked" style="-fx-background-radius: 10;" text="Back">
+                           <VBox.margin>
+                              <Insets left="100.0" top="50.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                    </children>
+                </GridPane>
+         </bottom></BorderPane>
+    </children>
+</AnchorPane>
