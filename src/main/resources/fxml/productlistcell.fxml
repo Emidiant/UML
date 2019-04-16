@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="60.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ImageView fx:id="imageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Label fx:id="productId" layoutX="210.0" layoutY="21.0" text="product Id" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="21.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label fx:id="type" layoutX="127.0" layoutY="21.0" text="type" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="598.5">
-            <font>
-                <Font size="14.0" />
-            </font></Label>
-        <Label fx:id="name" layoutX="42.0" layoutY="15.0" text="name" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="721.5" AnchorPane.topAnchor="15.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label fx:id="price" layoutX="324.0" layoutY="23.0" text="price" />
-      <Label fx:id="count" layoutX="572.0" layoutY="23.0" text="count" />
-      <Label fx:id="countCust" layoutX="642.0" layoutY="23.0" text="count Cust" />
-      <Label fx:id="sizeId" layoutX="406.0" layoutY="23.0" text="size" />
-      <Label fx:id="colorId" layoutX="488.0" layoutY="22.0" text="color" />
-      <Button fx:id="importButton" layoutX="727.0" layoutY="18.0" mnemonicParsing="false" text="Import" />
+        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="800.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="name" alignment="CENTER" disable="true" prefHeight="29.0" prefWidth="145.0" promptText="productName" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" />
+                <TextField fx:id="type" alignment="CENTER" disable="true" promptText="type" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="1" />
+                <TextField fx:id="productId" alignment="CENTER" disable="true" prefHeight="29.0" prefWidth="119.0" promptText="productID" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="2" />
+                <TextField fx:id="price" alignment="CENTER" disable="true" promptText="price" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="3" />
+                <TextField fx:id="sizeId" alignment="CENTER" disable="true" promptText="size" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="4" />
+                <TextField fx:id="colorId" alignment="CENTER" disable="true" promptText="color" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="5" />
+                <TextField fx:id="count" alignment="CENTER" disable="true" promptText="count" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="6" />
+            <TextField fx:id="countCust" alignment="CENTER" disable="true" promptText="custCount" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="7" />
+            <TextField fx:id="countSup" alignment="CENTER" promptText="Count" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-opacity: 1.0;" GridPane.columnIndex="8" />
+            <Button fx:id="importButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="82.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Import" GridPane.columnIndex="9" />
+            </children>
+        </GridPane>
     </children>
 </AnchorPane>
