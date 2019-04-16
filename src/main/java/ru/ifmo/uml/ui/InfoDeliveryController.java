@@ -3,15 +3,12 @@ package ru.ifmo.uml.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import ru.ifmo.uml.dal.dto.*;
 import ru.ifmo.uml.dal.implementations.CustomerImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
-import ru.ifmo.uml.ui.controllers.ProductListCell;
 import ru.ifmo.uml.ui.controllers.ProductListForLogistCell;
 
 import java.util.ArrayList;
@@ -47,27 +44,6 @@ public class InfoDeliveryController {
 
     @FXML
     private Label phoneNumber;
-
-    @FXML
-    private TextField productName;
-
-    @FXML
-    private TextField type;
-
-    @FXML
-    private TextField productId;
-
-    @FXML
-    private TextField price;
-
-    @FXML
-    private TextField size;
-
-    @FXML
-    private TextField color;
-
-    @FXML
-    private TextField count;
 
     @FXML
     private ComboBox<String> statusBox;
@@ -139,6 +115,14 @@ public class InfoDeliveryController {
         statusBox.valueProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     order.setStatus(newValue);
+                    if (newValue.equals("closed")) {
+                        List<ProductOrder> productOrders1 = productOrderImpl.getByOrderId(order);
+                        for (ProductOrder productOrder : productOrders1) {
+                            Product product1 = productImpl.getById(productOrder.getProductId());
+                            product1.setCount(product1.getCount() - productOrder.getCount());
+                            productImpl.update(product1);
+                        }
+                    }
                     orderImpl.update(order);
                     MainApp.clearAll();
                 });
