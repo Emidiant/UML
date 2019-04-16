@@ -75,6 +75,7 @@ public class CartController {
         }
         txtTotal.setText(Double.toString(total));
         listviewProducts.setItems(FXCollections.observableArrayList(items));
+
     }
 
     public void btnOrderClicked(ActionEvent actionEvent) {

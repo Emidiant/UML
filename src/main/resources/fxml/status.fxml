@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.controllers.StatusController">
    <children>
       <BorderPane layoutX="155.0" layoutY="27.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
+                  <Label fx:id="txtMessage" />
                   <TextField fx:id="editId">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -41,7 +41,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="txtStatus" text="Label">
+                  <Label fx:id="txtStatus">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -51,7 +51,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="txtPrice" text="Label">
+                  <Label fx:id="txtPrice">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -61,14 +61,16 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="txtAddress" text="Label">
+                  <Label fx:id="txtAddress">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
+                  <Label />
                </children>
             </VBox>
          </right>
       </BorderPane>
+      <Button mnemonicParsing="false" onAction="#btnBackClicked" text="Back" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

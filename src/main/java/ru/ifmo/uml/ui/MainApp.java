@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.ui.controllers.CartController;
+import ru.ifmo.uml.ui.controllers.StatusController;
 
 import java.io.IOException;
 
@@ -226,8 +227,22 @@ public class MainApp extends Application {
     }
 
     public static void showOrderStatus() {
-        changeScene(loaderStatus, status, "/fxml/status.fxml");
+        if (loaderStatus == null)
+            loaderStatus = new FXMLLoader(MainApp.class.getResource("/fxml/status.fxml"));
+        if (status == null) {
+            try {
+                loaderStatus.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
 
+            Parent root = loaderStatus.getRoot();
+            StatusController statusController = loaderStatus.getController();
+            statusController.setOrderManager(new OrderManager(productRepository));
+            status = new Scene(root);
+        }
+        primaryStage.setScene(status);
     }
 
     public static void main(String[] args) {
