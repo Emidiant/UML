@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
 import ru.ifmo.uml.dal.dto.Administrator;
+import ru.ifmo.uml.ui.MainApp;
 
 public class LoginController {
     //TODO back,login btn

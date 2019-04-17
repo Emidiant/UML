@@ -10,6 +10,7 @@ import ru.ifmo.uml.dal.dto.Size;
 import ru.ifmo.uml.dal.implementations.ColorImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.SizeImpl;
+import ru.ifmo.uml.ui.MainApp;
 
 import java.util.List;
 

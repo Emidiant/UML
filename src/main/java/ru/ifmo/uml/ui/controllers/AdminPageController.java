@@ -8,6 +8,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import ru.ifmo.uml.dal.dto.Administrator;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
+import ru.ifmo.uml.ui.MainApp;
 
 
 public class AdminPageController {

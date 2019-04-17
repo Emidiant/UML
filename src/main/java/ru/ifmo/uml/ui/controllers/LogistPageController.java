@@ -8,6 +8,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
+import ru.ifmo.uml.ui.MainApp;
 
 
 public class LogistPageController {

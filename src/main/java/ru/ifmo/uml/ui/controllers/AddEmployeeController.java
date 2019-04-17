@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ru.ifmo.uml.dal.dto.*;
 import ru.ifmo.uml.dal.implementations.*;
+import ru.ifmo.uml.ui.MainApp;
 
 public class AddEmployeeController {
 

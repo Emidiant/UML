@@ -11,6 +11,7 @@ import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.dto.Product;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
+import ru.ifmo.uml.ui.MainApp;
 
 
 public class CoordPageController {

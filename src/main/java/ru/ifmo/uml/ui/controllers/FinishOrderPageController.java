@@ -3,6 +3,7 @@ package ru.ifmo.uml.ui.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import ru.ifmo.uml.ui.MainApp;
 
 public class FinishOrderPageController {
 
