@@ -16,8 +16,10 @@ import java.io.IOException;
 public class MainApp extends Application {
     private static Stage primaryStage;
     private static FXMLLoader loaderLogin = null;
+    private static FXMLLoader loaderAdmin = null;
     private static FXMLLoader loaderCoord = null;
     private static FXMLLoader loaderLogist = null;
+    private static FXMLLoader loaderInfoEmployee = null;
     private static FXMLLoader loaderInfoOrder = null;
     private static FXMLLoader loaderInfoDelivery = null;
     private static FXMLLoader loaderCart = null;
@@ -75,16 +77,38 @@ public class MainApp extends Application {
     public static void clearInfo() {
         info = null;
         loaderInfoDelivery = null;
-
+        loaderInfoEmployee = null;
+        loaderInfoOrder = null;
     }
 
     public static void clearAll() {
+        loaderAdmin = null;
+        loaderInfoEmployee = null;
         loaderCoord = null;
         loaderInfoOrder = null;
         loaderLogist = null;
         loaderInfoDelivery = null;
         admin = null;
         info = null;
+    }
+
+    public static void showAdminPage() {
+        if (loaderAdmin == null) {
+            loaderAdmin = new FXMLLoader(MainApp.class.getResource("/fxml/adminpage.fxml"));
+        }
+        primaryStage.setTitle("Administrator");
+        if (admin == null) {
+            try {
+                loaderAdmin.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            Parent root = loaderAdmin.getRoot();
+            admin = new Scene(root);
+        }
+        primaryStage.setScene(admin);
     }
 
     public static void showCoordPage() {
@@ -127,6 +151,26 @@ public class MainApp extends Application {
         primaryStage.setScene(admin);
     }
 
+    public static void showInfoEmployeePage(Integer id) {
+        if (loaderInfoEmployee == null)
+            loaderInfoEmployee = new FXMLLoader(MainApp.class.getResource("/fxml/infoemployeepage.fxml"));
+        primaryStage.setTitle("Information");
+        if (info == null) {
+            try {
+                loaderInfoEmployee.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            Parent root = loaderInfoEmployee.getRoot();
+            info = new Scene(root);
+        }
+        InfoEmployeeController infoEmployeeController = loaderInfoEmployee.getController();
+        infoEmployeeController.setId(id);
+        primaryStage.setScene(info);
+    }
+
     public static void showInfoOrderPage(Integer id) {
         if (loaderInfoOrder == null)
             loaderInfoOrder = new FXMLLoader(MainApp.class.getResource("/fxml/infoorderpage.fxml"));
@@ -154,7 +198,6 @@ public class MainApp extends Application {
             loaderInfoDelivery = new FXMLLoader(MainApp.class.getResource("/fxml/infodeliverypage.fxml"));
         primaryStage.setTitle("Information");
         if (info == null) {
-            //info = null;
             try {
                 loaderInfoDelivery.load();
             } catch (IOException e) {
@@ -181,6 +224,11 @@ public class MainApp extends Application {
         primaryStage.setTitle("Add Product");
         changeScene(loaderLogin,login,"/fxml/addproduct.fxml");
 
+    }
+
+    public static void showAddEmployee() {
+        primaryStage.setTitle("Add Employee");
+        changeScene(loaderLogin,login,"/fxml/addemployee.fxml");
     }
 
     public static void showCartPage() {

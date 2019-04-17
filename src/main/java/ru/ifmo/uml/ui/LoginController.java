@@ -8,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
 import ru.ifmo.uml.dal.dto.Administrator;
+import sun.applet.Main;
 
 public class LoginController {
     //TODO back,login btn
@@ -20,12 +21,9 @@ public class LoginController {
     public ImageView imgBig;
     public Administrator administrator = null;
     private AdministratorImpl auth;
-    private Stage prevStage;
-    public void setStage(Stage stage){
-        this.prevStage = stage;
-    }
+
     @FXML
-    void initialize(){
+    void initialize() {
         auth = new AdministratorImpl();
 
         if (comboBox.getItems().isEmpty()) {
@@ -38,11 +36,11 @@ public class LoginController {
                     if (tempAdministrator == null) {
                         comboBox.setValue(null);
                         comboBox.setDisable(true);
-                    } else if (tempAdministrator.getLevel().equals("logist")) {
+                    } else if (tempAdministrator.getLevel().equals("Logistician")) {
                         comboBox.setValue("Logistician");
-                    } else if (tempAdministrator.getLevel().equals("low")) {
+                    } else if (tempAdministrator.getLevel().equals("Coordinator")) {
                         comboBox.setValue("Coordinator");
-                    } else if (tempAdministrator.getLevel().equals("admin")) {
+                    } else if (tempAdministrator.getLevel().equals("Admin")) {
                         comboBox.setDisable(false);
                     }
                 });
@@ -62,17 +60,17 @@ public class LoginController {
 
         //временнo
         //COORDINATOR
-        txtUsername.setText("morgan");
+        //txtUsername.setText("morgan");
         //LOGICIAN
         //txtUsername.setText("iivanov");
         //GOD
-        //txtUsername.setText("admin");
+        txtUsername.setText("emidiant");
         passPassword.setText("123654");
 
     }
 
     @FXML
-    private void btnBackClicked(){
+    private void btnBackClicked() {
         MainApp.showMainPage();
     }
 
@@ -82,10 +80,10 @@ public class LoginController {
             if (tempAdministrator.getPassword().equals(passPassword.getText())) {
                 administrator = tempAdministrator;
                 //в зависимости от уровня открывать coordinator page или logistic page
-                if (administrator.getLevel().equals("admin")) {
+                if (administrator.getLevel().equals("Admin")) {
                     try {
                         if (comboBox.getValue().equals("Admin")) {
-                            //TODO: showAdminPage
+                            MainApp.showAdminPage();
                         } else if (comboBox.getValue().equals("Coordinator")) {
                             MainApp.showCoordPage();
                         } else if (comboBox.getValue().equals("Logistician")) {
@@ -95,9 +93,9 @@ public class LoginController {
                         incorrectData.setText("Choose mode");
                     }
 
-                } else if (administrator.getLevel().equals("low")) {
+                } else if (administrator.getLevel().equals("Coordinator")) {
                     MainApp.showCoordPage();
-                } else if (administrator.getLevel().equals("logist")) {
+                } else if (administrator.getLevel().equals("Logistician")) {
                     MainApp.showLogistPage();
                 }
 
