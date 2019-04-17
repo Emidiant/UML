@@ -3,20 +3,18 @@ package ru.ifmo.uml.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import ru.ifmo.uml.dal.implementations.OrderImpl;
-import ru.ifmo.uml.dal.implementations.ProductImpl;
-import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
 import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.dto.Product;
 import ru.ifmo.uml.dal.dto.ProductOrder;
-import ru.ifmo.uml.ui.controllers.OrdersListCell;
+import ru.ifmo.uml.dal.implementations.OrderImpl;
+import ru.ifmo.uml.dal.implementations.ProductImpl;
+import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
 import ru.ifmo.uml.ui.controllers.ProductListCell;
-import ru.ifmo.uml.ui.controllers.StockListCell;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,12 +38,9 @@ public class InfoOrderController {
     @FXML
     private ComboBox<String> statusBox;
 
-    //ObservableList<Order> ordersList = FXCollections.observableArrayList();
     Map<Product, Integer> productCount;
 
     ObservableList<Product> productList = FXCollections.observableArrayList();
-
-    //ObservableList<Customer> customerList = FXCollections.observableArrayList();
 
     Stage prevStage;
     private Integer id;

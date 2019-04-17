@@ -10,7 +10,6 @@ import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
 import ru.ifmo.uml.ui.MainApp;
 import ru.ifmo.uml.ui.ProductRepository;
-import ru.ifmo.uml.utils.Listener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +78,7 @@ public class CartController {
     }
 
     public void btnOrderClicked(ActionEvent actionEvent) {
+        MainApp.showAddCustomer(cart);
 
     }
 

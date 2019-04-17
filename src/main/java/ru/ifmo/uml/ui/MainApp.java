@@ -4,11 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
 import ru.ifmo.uml.entity.Cart;
+import ru.ifmo.uml.ui.controllers.AddCustomerController;
 import ru.ifmo.uml.ui.controllers.CartController;
+import ru.ifmo.uml.ui.controllers.FinishOrderPageController;
 import ru.ifmo.uml.ui.controllers.StatusController;
 
 import java.io.IOException;
@@ -22,13 +24,19 @@ public class MainApp extends Application {
     private static FXMLLoader loaderInfoEmployee = null;
     private static FXMLLoader loaderInfoOrder = null;
     private static FXMLLoader loaderInfoDelivery = null;
+    private static FXMLLoader loaderInfoCustomer = null;
     private static FXMLLoader loaderCart = null;
     private static FXMLLoader loaderStatus = null;
+    private static FXMLLoader loaderFinishOrder = null;
+
     private static Scene login = null;
     private static Scene admin = null;
+    private static Scene customer = null;
     private static Scene info = null;
     private static Scene cart = null;
     private static Scene status = null;
+    private static Scene finish = null;
+
     private static Cart cartItem;
     private static ProductRepository productRepository;
     private BorderPane mainLayout;
@@ -219,6 +227,8 @@ public class MainApp extends Application {
 
     }
 
+
+
     public static void showAddProduct() {
 
         primaryStage.setTitle("Add Product");
@@ -229,6 +239,57 @@ public class MainApp extends Application {
     public static void showAddEmployee() {
         primaryStage.setTitle("Add Employee");
         changeScene(loaderLogin,login,"/fxml/addemployee.fxml");
+    }
+
+    public static void showFinishOrderPage(Integer id) {
+        if (loaderFinishOrder == null)
+            loaderFinishOrder = new FXMLLoader(MainApp.class.getResource("/fxml/finishorderpage.fxml"));
+        primaryStage.setTitle("Finish");
+        if (finish == null) {
+            try {
+                loaderFinishOrder.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            Parent root = loaderFinishOrder.getRoot();
+            finish = new Scene(root);
+        }
+        FinishOrderPageController finishOrderPageController = loaderFinishOrder.getController();
+        finishOrderPageController.setOrderId(id);
+        primaryStage.setScene(finish);
+    }
+
+
+    public static void showAddCustomer(Cart cart) {
+
+        /*primaryStage.setTitle("Information about customer");
+        changeScene(loaderLogin,login,"/fxml/addcustomer.fxml");
+
+        AddCustomerController addCustomerController = loaderInfoCustomer.getController();
+        addCustomerController.setCart(cart);
+        primaryStage.setScene(info);*/
+
+
+        if (loaderInfoCustomer == null)
+            loaderInfoCustomer = new FXMLLoader(MainApp.class.getResource("/fxml/addcustomer.fxml"));
+        primaryStage.setTitle("Information about customer");
+        if (info == null) {
+            try {
+                loaderInfoCustomer.load();
+            } catch (IOException e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+            Parent root = loaderInfoCustomer.getRoot();
+            customer = new Scene(root);
+        }
+        AddCustomerController addCustomerController = loaderInfoCustomer.getController();
+        addCustomerController.setCart(cart);
+        primaryStage.setScene(customer);
+
     }
 
     public static void showCartPage() {

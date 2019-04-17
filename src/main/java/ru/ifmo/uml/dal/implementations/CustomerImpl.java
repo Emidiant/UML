@@ -104,4 +104,20 @@ public class CustomerImpl implements CustomerDao {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public Integer getLastCustomerId() {
+        int customerId = 0;
+        String query = "SELECT CUSTOMERID FROM CUSTOMER";
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                customerId = rs.getInt("CUSTOMERID");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return customerId;
+    }
 }

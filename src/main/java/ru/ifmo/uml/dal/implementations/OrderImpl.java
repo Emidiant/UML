@@ -95,4 +95,20 @@ public class OrderImpl implements OrderDao {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public Integer getLastOrderId() {
+        int orderId = 0;
+        String query = "SELECT ORDERID FROM \"ORDER\"";
+        try (Connection connection = ConnectionUtil.getConnection()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    orderId = rs.getInt("ORDERID");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return orderId;
+    }
 }

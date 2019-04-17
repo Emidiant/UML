@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.controllers.CartController">
+<AnchorPane fx:id="anchorpane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.ifmo.uml.ui.controllers.CartController">
    <children>
       <AnchorPane fx:id="anchorpaneProducts" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -38,8 +38,8 @@
                      <children>
                         <Label text="Total" />
                         <Label fx:id="txtTotal" text="Label" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#btnOrderClicked" text="Order" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                        <Button mnemonicParsing="false" onAction="#btnBackClicked" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#btnOrderClicked" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Order" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#btnBackClicked" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </right>
