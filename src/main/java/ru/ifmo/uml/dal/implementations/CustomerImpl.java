@@ -120,4 +120,21 @@ public class CustomerImpl implements CustomerDao {
         }
         return customerId;
     }
+
+    @Override
+    public Integer getCustomerIdByEmail(String email) {
+        int customerId = 0;
+        String query = "SELECT CUSTOMERID FROM CUSTOMER WHERE EMAIL = ?";
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                customerId = rs.getInt("CUSTOMERID");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return customerId;
+    }
 }

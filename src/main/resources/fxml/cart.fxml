@@ -38,7 +38,7 @@
                      <children>
                         <Label text="Total" />
                         <Label fx:id="txtTotal" text="Label" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#btnOrderClicked" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Order" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                        <Button fx:id="orderButton" mnemonicParsing="false" onAction="#btnOrderClicked" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Order" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                         <Button mnemonicParsing="false" onAction="#btnBackClicked" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>

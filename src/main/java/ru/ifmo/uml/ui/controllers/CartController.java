@@ -3,6 +3,7 @@ package ru.ifmo.uml.ui.controllers;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.util.Pair;
@@ -17,6 +18,8 @@ import java.util.Map;
 
 
 public class CartController {
+    @FXML
+    private Button orderButton;
     @FXML
     public ListView listviewProducts;
     @FXML
@@ -78,8 +81,9 @@ public class CartController {
     }
 
     public void btnOrderClicked(ActionEvent actionEvent) {
-        MainApp.showAddCustomer(cart);
-
+        if (!cart.getProducts().isEmpty()) {
+            MainApp.showAddCustomer(cart);
+        }
     }
 
     public void btnBackClicked(ActionEvent actionEvent) {

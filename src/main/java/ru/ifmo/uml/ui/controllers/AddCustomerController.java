@@ -53,6 +53,8 @@ public class AddCustomerController {
         btnBack.setOnAction(event -> {
             MainApp.showCartPage();
         });
+
+
     }
 
     void createDeliveryTypeInfo(){
@@ -66,6 +68,21 @@ public class AddCustomerController {
                     }else {
                         address.clear();
                         address.setDisable(false);
+                    }
+                });
+
+        CustomerImpl customerImpl = new CustomerImpl();
+
+
+        email.textProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    Customer customer = new Customer();
+                    if (customerImpl.getCustomerIdByEmail(email.getText()) != 0){
+                        customer = customerImpl.getById(customerImpl.getCustomerIdByEmail(email.getText()));
+                        secondName.setText(customer.getSecondName());
+                        firstName.setText(customer.getFirstName());
+                        phoneNumber.setText(customer.getPhoneNumber());
+                        address.setText(customer.getAddress());
                     }
                 });
     }
@@ -87,19 +104,29 @@ public class AddCustomerController {
                     || address.getText().equals("")
                     || email.getText().equals("")
                     || phoneNumber.getText().equals("")
-                    || address.getText().equals(""))
+                    || address.getText().equals("")
+                    || deliveryType.getValue().equals(null))
+
                 throw new Exception();
             customer.setSecondName(secondName.getText());
             customer.setAddress(address.getText());
             customer.setFirstName(firstName.getText());
             customer.setEmail(email.getText());
             customer.setPhoneNumber(phoneNumber.getText());
-            customerImpl.add(customer);
 
-            //todo i don't like this id getting!!! (emi)
+            int customerId;
+
+            if (customerImpl.getCustomerIdByEmail(email.getText()) != 0){
+                customerId = customerImpl.getCustomerIdByEmail(email.getText());
+            }else{
+                customerImpl.add(customer);
+                customerId = customerImpl.getLastCustomerId();
+            }
+
+
             order.setDeliveryType(deliveryType.getValue());
             order.setStatus("not confirmed");
-            order.setCustomerId(customerImpl.getLastCustomerId());
+            order.setCustomerId(customerId);
             orderImpl.add(order);
             int orderId = orderImpl.getLastOrderId();
 

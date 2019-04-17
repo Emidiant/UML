@@ -26,7 +26,8 @@ public class FinishOrderPageController {
 
     @FXML
     void btnBackToTheShop() {
-        //todo clean  the cart
+        //todo clean cart
+        MainApp.clearAll();
         MainApp.showMainPage();
     }
 }

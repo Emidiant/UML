@@ -98,6 +98,12 @@ public class MainApp extends Application {
         loaderInfoDelivery = null;
         admin = null;
         info = null;
+
+        loaderFinishOrder = null;
+        loaderInfoCustomer = null;
+        status = null;
+        finish = null;
+
     }
 
     public static void showAdminPage() {
