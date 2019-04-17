@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
+import ru.ifmo.uml.ui.MainApp;
 
 public class MainController {
 

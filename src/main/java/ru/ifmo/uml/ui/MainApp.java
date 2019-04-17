@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui.controllers;
+package ru.ifmo.uml.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import ru.ifmo.uml.entity.Cart;
+import ru.ifmo.uml.ui.controllers.*;
 
 import java.io.IOException;
 

@@ -14,6 +14,7 @@ import ru.ifmo.uml.dal.dto.ProductOrder;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
+import ru.ifmo.uml.ui.MainApp;
 
 import java.util.ArrayList;
 import java.util.HashMap;

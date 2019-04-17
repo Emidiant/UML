@@ -11,6 +11,7 @@ import ru.ifmo.uml.dal.implementations.CustomerImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
 import ru.ifmo.uml.entity.Cart;
+import ru.ifmo.uml.ui.MainApp;
 
 import java.util.Map;
 

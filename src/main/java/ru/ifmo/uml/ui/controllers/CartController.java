@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.util.Pair;
 import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
+import ru.ifmo.uml.ui.MainApp;
 
 import java.util.ArrayList;
 import java.util.List;
