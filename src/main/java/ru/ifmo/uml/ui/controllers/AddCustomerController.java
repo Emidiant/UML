@@ -83,6 +83,11 @@ public class AddCustomerController {
                         firstName.setText(customer.getFirstName());
                         phoneNumber.setText(customer.getPhoneNumber());
                         address.setText(customer.getAddress());
+                    }else{
+                        secondName.clear();
+                        firstName.clear();
+                        phoneNumber.clear();
+                        address.clear();
                     }
                 });
     }
@@ -118,6 +123,7 @@ public class AddCustomerController {
 
             if (customerImpl.getCustomerIdByEmail(email.getText()) != 0){
                 customerId = customerImpl.getCustomerIdByEmail(email.getText());
+                //менять имя, email, фамилию нельзя, телефон, address
             }else{
                 customerImpl.add(customer);
                 customerId = customerImpl.getLastCustomerId();
