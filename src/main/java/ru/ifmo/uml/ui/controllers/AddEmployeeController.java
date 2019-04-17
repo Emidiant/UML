@@ -1,18 +1,9 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ru.ifmo.uml.dal.dto.*;
 import ru.ifmo.uml.dal.implementations.*;
-import ru.ifmo.uml.ui.controllers.ProductListForLogistCell;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class AddEmployeeController {
 

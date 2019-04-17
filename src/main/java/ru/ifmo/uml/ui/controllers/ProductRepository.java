@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.scene.image.Image;
 import ru.ifmo.uml.dal.implementations.ProductImpl;

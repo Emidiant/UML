@@ -8,8 +8,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import ru.ifmo.uml.entity.Order;
 import ru.ifmo.uml.entity.ProductWithAmount;
-import ru.ifmo.uml.ui.MainApp;
-import ru.ifmo.uml.ui.OrderManager;
 
 public class StatusController {
     public TextField editId;

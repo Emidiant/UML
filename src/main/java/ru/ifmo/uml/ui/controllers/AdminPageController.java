@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,13 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import ru.ifmo.uml.dal.dto.Administrator;
-import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
-import ru.ifmo.uml.dal.implementations.OrderImpl;
-
-
-import ru.ifmo.uml.ui.controllers.EmployeesListCell;
-import ru.ifmo.uml.ui.controllers.OrdersListCell;
 
 
 public class AdminPageController {

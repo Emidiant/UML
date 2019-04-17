@@ -3,19 +3,13 @@ package ru.ifmo.uml.ui.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import ru.ifmo.uml.dal.dto.Color;
 import ru.ifmo.uml.dal.dto.Product;
-import ru.ifmo.uml.dal.dto.Size;
 import ru.ifmo.uml.dal.implementations.ColorImpl;
-import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.SizeImpl;
-import ru.ifmo.uml.ui.InfoOrderController;
-import ru.ifmo.uml.ui.MainApp;
 
 
 import java.io.IOException;

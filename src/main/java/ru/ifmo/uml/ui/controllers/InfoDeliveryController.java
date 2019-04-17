@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +9,6 @@ import ru.ifmo.uml.dal.implementations.CustomerImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.ProductOrderImpl;
-import ru.ifmo.uml.ui.controllers.ProductListForLogistCell;
 
 import java.util.ArrayList;
 import java.util.HashMap;

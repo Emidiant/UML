@@ -1,15 +1,12 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import ru.ifmo.uml.dal.dto.Administrator;
 import ru.ifmo.uml.dal.dto.Color;
 import ru.ifmo.uml.dal.dto.Product;
 import ru.ifmo.uml.dal.dto.Size;
-import ru.ifmo.uml.dal.implementations.AdministratorImpl;
 import ru.ifmo.uml.dal.implementations.ColorImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
 import ru.ifmo.uml.dal.implementations.SizeImpl;

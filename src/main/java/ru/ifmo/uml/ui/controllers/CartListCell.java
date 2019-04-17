@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+//import javafx.scene.control.Spinner;
+//import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>> {
-    @FXML
+   /* @FXML
     public Label txtName;
     @FXML
     public Label txtDescription;
@@ -29,8 +29,8 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
     public Label txtColor;
     @FXML
     public Label txtPrice;
-    @FXML
-    public Spinner spinner;
+    //@FXML
+    //public Spinner spinner;
     @FXML
     public Label txtTotalPrice;
     @FXML
@@ -103,6 +103,6 @@ public class CartListCell extends ListCell<Pair<Product, Pair<Integer, Integer>>
     }
     public void btnDeleteClicked(ActionEvent actionEvent){
         notifyListeners(0);
-    }
+    }*/
 
 }

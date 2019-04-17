@@ -1,27 +1,16 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ru.ifmo.uml.dal.dto.Order;
 import ru.ifmo.uml.dal.dto.Product;
-import ru.ifmo.uml.dal.implementations.CustomerImpl;
 import ru.ifmo.uml.dal.implementations.OrderImpl;
 import ru.ifmo.uml.dal.implementations.ProductImpl;
-
-
-import ru.ifmo.uml.ui.controllers.MainListCell;
-import ru.ifmo.uml.ui.controllers.OrdersListCell;
-import ru.ifmo.uml.ui.controllers.StockListCell;
-
-import java.util.List;
 
 
 public class CoordPageController {

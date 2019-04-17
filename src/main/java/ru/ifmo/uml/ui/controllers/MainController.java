@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 
 import javafx.collections.FXCollections;
@@ -6,20 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import ru.ifmo.uml.dal.implementations.ProductImpl;
 
 import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.ui.controllers.MainListCell;
-
-import java.io.IOException;
 
 public class MainController {
 

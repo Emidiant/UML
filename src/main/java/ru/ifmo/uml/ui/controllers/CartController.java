@@ -9,8 +9,6 @@ import javafx.scene.control.ListView;
 import javafx.util.Pair;
 import ru.ifmo.uml.entity.Cart;
 import ru.ifmo.uml.entity.Product;
-import ru.ifmo.uml.ui.MainApp;
-import ru.ifmo.uml.ui.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,7 @@ public class CartController {
 
     @FXML
     void initialize() {
-        listviewProducts.setCellFactory(param -> new CartListCell() {
+      /*  listviewProducts.setCellFactory(param -> new CartListCell() {
             @Override
             protected void updateItem(Pair<Product, Pair<Integer, Integer>> item, boolean empty) {
                 super.updateItem(item, empty);
@@ -53,7 +51,7 @@ public class CartController {
                     }
                 });
             }
-        });
+        });*/
     }
 
     public void updateTotal() {

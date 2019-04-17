@@ -1,4 +1,4 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import ru.ifmo.uml.dal.dto.ProductOrder;
 import ru.ifmo.uml.dal.implementations.OrderImpl;

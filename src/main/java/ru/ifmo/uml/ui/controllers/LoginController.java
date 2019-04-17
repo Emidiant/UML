@@ -1,14 +1,12 @@
-package ru.ifmo.uml.ui;
+package ru.ifmo.uml.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
 import ru.ifmo.uml.dal.implementations.AdministratorImpl;
 import ru.ifmo.uml.dal.dto.Administrator;
-import sun.applet.Main;
 
 public class LoginController {
     //TODO back,login btn
