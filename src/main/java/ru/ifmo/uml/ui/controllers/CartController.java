@@ -34,7 +34,7 @@ public class CartController {
 
     @FXML
     void initialize() {
-      /*  listviewProducts.setCellFactory(param -> new CartListCell() {
+        listviewProducts.setCellFactory(param -> new CartListCell() {
             @Override
             protected void updateItem(Pair<Product, Pair<Integer, Integer>> item, boolean empty) {
                 super.updateItem(item, empty);
@@ -52,7 +52,7 @@ public class CartController {
                     }
                 });
             }
-        });*/
+        });
     }
 
     public void updateTotal() {
